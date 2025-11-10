@@ -412,25 +412,99 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
       <h2>청소 작업 문의</h2>
       <p>어떤 청소든 메가크리닝에게 맡기세요. 빠르고 친절하게 도와드립니다.</p>
     </div>
-    <form class="form">
-      <input class="input" type="text" placeholder="이름 *" required>
-      <input class="input" type="tel" placeholder="연락처 *" required>
-      <input class="input" type="text" placeholder="주소 * (동/단지명)" style="grid-column:1/-1" required>
-      <select class="input" required>
-        <option>서비스 종류 *</option>
-        <option>입주청소</option><option>이사청소</option><option>사무실청소</option>
-        <option>정기청소</option><option>가전청소</option>
-      </select>
-      <input class="input" type="text" placeholder="평수">
-      <textarea class="input textarea" placeholder="문의 내용을 입력하세요"></textarea>
-      <button class="btn-submit">신청하기</button>
 
+    <!-- ✅ 문의 폼 -->
+    <form class="form" id="inquiry-form">
+      <input class="input" type="text" name="name" placeholder="이름 *" required>
+      <input class="input" type="tel" name="phone" placeholder="연락처 *" required>
+      <input class="input" type="text" name="address" placeholder="주소 * (동/단지명)" style="grid-column:1/-1" required>
+      <select class="input" name="service" required>
+        <option value="">서비스 종류 *</option>
+        <option>입주청소</option>
+        <option>이사청소</option>
+        <option>사무실청소</option>
+        <option>정기청소</option>
+        <option>가전청소</option>
+      </select>
+      <input class="input" type="text" name="size" placeholder="평수">
+      <textarea class="input textarea" name="message" placeholder="문의 내용을 입력하세요"></textarea>
+      <button class="btn-submit" type="submit">신청하기</button>
     </form>
 
+    <!-- ✅ 중앙 알림창 -->
+    <div id="center-alert" style="
+        display:none;
+        position:fixed;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%) scale(0.9);
+        background:white;
+        color:#0f172a;
+        padding:40px 50px;
+        border-radius:20px;
+        box-shadow:0 8px 40px rgba(0,0,0,0.2);
+        text-align:center;
+        font-weight:700;
+        font-size:18px;
+        z-index:9999;
+        opacity:0;
+        transition:all 0.5s ease;
+        max-width:90%;
+      ">
+      <div style="font-size:26px; margin-bottom:10px;">✅ 문의가 접수되었습니다!</div>
+      <div style="font-size:16px; color:#475569;">담당자가 곧 연락드리겠습니다 😊</div>
+    </div>
 
+    <script>
+      const form = document.getElementById("inquiry-form");
+      const alertBox = document.getElementById("center-alert");
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzxpdWkZcgVS_hvKGnKFP6U25LwrDdS1FI4JHg3tNnr9AGmN9sORxF10tSr8kQAeBmU/exec";
 
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(scriptURL, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            showCenterAlert("✅ 문의가 접수되었습니다!", "담당자가 곧 연락드리겠습니다 😊");
+            form.reset();
+          } else {
+            showCenterAlert("⚠️ 전송 오류", "잠시 후 다시 시도해주세요.");
+          }
+        } catch (error) {
+          console.error(error);
+          showCenterAlert("❌ 네트워크 오류", "인터넷 연결을 확인해주세요.");
+        }
+      });
+
+      // ✅ 중앙 알림 함수
+      function showCenterAlert(title, text) {
+        alertBox.innerHTML = `
+          <div style="font-size:26px; margin-bottom:10px;">${title}</div>
+          <div style="font-size:16px; color:#475569;">${text}</div>
+        `;
+        alertBox.style.display = "block";
+        setTimeout(() => {
+          alertBox.style.opacity = "1";
+          alertBox.style.transform = "translate(-50%, -50%) scale(1)";
+        }, 10);
+
+        setTimeout(() => {
+          alertBox.style.opacity = "0";
+          alertBox.style.transform = "translate(-50%, -50%) scale(0.9)";
+          setTimeout(() => (alertBox.style.display = "none"), 500);
+        }, 3000);
+      }
+    </script>
   </div>
 </section>
+
+
 
 <!-- === FOOTER === -->
 <footer class="fade-up">
@@ -476,4 +550,3 @@ window.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
