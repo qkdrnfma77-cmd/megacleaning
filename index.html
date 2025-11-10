@@ -165,6 +165,22 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
   }
 }
 
+/* 📱 모바일 반응형 보완 */
+@media (max-width: 600px) {
+  #center-alert {
+    padding: 30px 24px;
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 1.4;
+    width: 85%;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+  #center-alert div:first-child {
+    font-size: 20px;
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -179,7 +195,7 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
     <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
       <img src="https://i.imgur.com/CbqrFcs.png"
            alt="메가크리닝 로고"
-           style="width:42px;height:42px;border-radius:10px;object-fit:contain;">
+           style="width:42px;height:42px;border-radius:15px;object-fit:contain;">
       <div style="font-size:22px;font-weight:700;white-space:nowrap;">
         <span style="color:#0f172a;">청소는 </span>
         <span style="color:#2BB3FF;">메가크리닝</span>
@@ -187,7 +203,7 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
     </a>
 
     <!-- 오른쪽 메뉴 -->
-    <nav style="display:flex;align-items:center;gap:26px;font-weight:600;color:#334155;">
+    <nav style="display:flex;align-items:center;gap:10px;font-weight:600;color:#334155;">
       <a href="#services">서비스</a>
       <a href="#advantages">강점</a>
       <a href="#eco">친환경</a>
@@ -374,7 +390,7 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
 <section id="reviews" class="reviews-section fade-up">
   <div class="container">
     <div class="section-title">
-      <h2>메가크리닝 작업후기</h2>
+      <h2>메가크리닝 후기</h2>
     </div>
     <a href="https://blog.naver.com/mega-cleaning" target="_blank" class="blog-link-box">
       <img src="https://i.imgur.com/KRTHg2n.png" alt="">
@@ -432,28 +448,30 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
     </form>
 
     <!-- ✅ 중앙 알림창 -->
-    <div id="center-alert" style="
-        display:none;
-        position:fixed;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%) scale(0.9);
-        background:white;
-        color:#0f172a;
-        padding:40px 50px;
-        border-radius:20px;
-        box-shadow:0 8px 40px rgba(0,0,0,0.2);
-        text-align:center;
-        font-weight:700;
-        font-size:18px;
-        z-index:9999;
-        opacity:0;
-        transition:all 0.5s ease;
-        max-width:90%;
-      ">
-      <div style="font-size:26px; margin-bottom:10px;">✅ 문의가 접수되었습니다!</div>
-      <div style="font-size:16px; color:#475569;">담당자가 곧 연락드리겠습니다 😊</div>
-    </div>
+    <!-- ✅ 여기 아래 붙여넣기 -->
+<div id="center-alert" style="
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) scale(0.9);
+  background:#ffffff;
+  color:#0f172a;
+  padding:40px 36px;
+  border-radius:24px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.25);
+  text-align:center;
+  font-weight:700;
+  z-index:9999;
+  opacity:0;
+  transition:all 0.5s ease;
+  width:90%;
+  max-width:380px;
+  line-height:1.5;
+">
+  <div style="font-size:24px; margin-bottom:8px;">✅ 문의가 접수되었습니다!</div>
+  <div style="font-size:15px; color:#475569;">담당자가 곧 연락드리겠습니다 😊</div>
+</div>
 
     <script>
       const form = document.getElementById("inquiry-form");
@@ -481,6 +499,26 @@ footer{background:#1e293b;color:#e2e8f0;padding:70px 8%;}
           showCenterAlert("❌ 네트워크 오류", "인터넷 연결을 확인해주세요.");
         }
       });
+
+function showCenterAlert(title, text) {
+    const alertBox = document.getElementById("center-alert");
+    alertBox.innerHTML = `
+      <div style="font-size:24px; margin-bottom:8px;">${title}</div>
+      <div style="font-size:15px; color:#475569;">${text}</div>
+    `;
+
+    alertBox.style.display = "block";
+    setTimeout(() => {
+      alertBox.style.opacity = "1";
+      alertBox.style.transform = "translate(-50%, -50%) scale(1)";
+    }, 10);
+
+    setTimeout(() => {
+      alertBox.style.opacity = "0";
+      alertBox.style.transform = "translate(-50%, -50%) scale(0.9)";
+      setTimeout(() => (alertBox.style.display = "none"), 500);
+    }, 3000);
+  }
 
       // ✅ 중앙 알림 함수
       function showCenterAlert(title, text) {
