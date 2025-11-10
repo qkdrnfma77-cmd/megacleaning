@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://megacleaning.co.kr/sitemap.xml
