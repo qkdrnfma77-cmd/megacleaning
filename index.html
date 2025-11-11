@@ -467,60 +467,158 @@
 }
 
 /* ============================= */
-/* 🔽 스크롤 유도 화살표 + 애니메이션 */
+/* ✅ Hero 버튼 한 줄 정렬 + 간격 조정 */
 /* ============================= */
-.scroll-down {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 34px;
-  height: 60px;
-  border: 2px solid #a0aec0;
-  border-radius: 25px;
+.hero-buttons {
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  opacity: 0.8;
-  animation: bounce 2s infinite;
-  transition: opacity 0.3s;
-}
-.scroll-down:hover { opacity: 1; }
-
-.scroll-down span {
-  width: 7px;
-  height: 7px;
-  background: #a0aec0;
-  border-radius: 50%;
-  margin-top: 10px;
-  animation: scroll-dot 2s infinite;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-/* 🔹 화살표 움직임 */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, 6px); }
-  60% { transform: translate(-50%, 3px); }
+.btn-call,
+.btn-service {
+  flex: 1;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
 }
-@keyframes scroll-dot {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(12px); }
-  100% { opacity: 0; transform: translateY(22px); }
+
+.btn-call {
+  background: #2BB3FF;
+  color: #fff;
+}
+
+.btn-call:hover {
+  background: #1a96e6;
+}
+
+.btn-service {
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #1e293b;
+}
+
+.btn-service:hover {
+  background: #f1f5f9;
 }
 
 /* 모바일 대응 */
 @media (max-width: 768px) {
-  .scroll-down {
-    bottom: 18px;
-    width: 28px;
-    height: 50px;
-    border-width: 1.8px;
+  .hero-buttons {
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
-  .scroll-down span {
-    width: 6px;
-    height: 6px;
+  .btn-call, .btn-service {
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+}
+
+/* ============================= */
+/* 🔽 스크롤 유도 화살표 — 영상 아래 위치 */
+/* ============================= */
+.scroll-down {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 14px;
+  width: 28px;
+  height: 44px;
+  border: 2px solid #2BB3FF;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  transition: opacity 0.3s;
+}
+
+.scroll-down span {
+  width: 6px;
+  height: 6px;
+  background: #2BB3FF;
+  border-radius: 50%;
+  margin-top: 8px;
+  animation: scroll-dot 2s infinite;
+}
+
+.scroll-down:hover { opacity: 1; }
+
+/* 🔹 애니메이션 효과 */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(5px); }
+  60% { transform: translateY(3px); }
+}
+@keyframes scroll-dot {
+  0% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(10px); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* === 버튼 공통 === */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
+}
+
+.btn-modern {
+  flex: 1;
+  padding: 14px 0;
+  font-weight: 800;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
+}
+
+/* 📞 지금 전화하기 버튼 */
+.btn-call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  border: none;
+}
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
+}
+
+/* 📋 서비스 보기 버튼 */
+.btn-service {
+  background: #fff;
+  color: #1e293b;
+  border: 2px solid #cfd8e3;
+}
+.btn-service:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+/* 📱 모바일 대응 */
+@media (max-width: 768px) {
+  .btn-modern {
+    font-size: 14px;
+    padding: 12px 0;
+    border-radius: 10px;
   }
 }
 
@@ -598,6 +696,9 @@
            서비스 보기
         </a>
       </div>
+
+
+
     </div>
 
     <!-- 오른쪽 동영상 -->
@@ -964,5 +1065,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
-
 
