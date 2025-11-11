@@ -421,6 +421,42 @@
   }
 }
 
+<style>
+/* ============================= */
+/* 📱 헤더와 히어로 간격 조정 (모바일) */
+/* ============================= */
+@media (max-width: 768px) {
+  /* 헤더 높이 보정 */
+  header .container {
+    padding: 10px 14px !important;
+    gap: 4px !important;
+  }
+
+  /* 히어로 섹션 상단 패딩 축소 */
+  .section.headroom {
+    padding-top: 95px !important; /* 기존 120px → 95px */
+  }
+
+  /* 문구와 헤더 사이 간격 조정 */
+  .section.headroom h1 {
+    margin-top: 4px !important; /* 위쪽 여백 최소화 */
+    margin-bottom: 6px !important;
+  }
+
+  /* 버튼 위 여백 줄이기 */
+  .section.headroom .btn-primary,
+  .section.headroom a[href="#services"] {
+    margin-top: 4px !important;
+  }
+
+  /* 영상과 버튼 사이 간격도 살짝 줄이기 */
+  .section.headroom div[style*="aspect-ratio:16/9"] {
+    margin-top: 12px !important;
+  }
+}
+</style>
+
+
   </style>
 
   <script type="application/ld+json">
@@ -623,7 +659,7 @@
 <section id="eco" class="eco-section fade-up">
   <div class="eco-overlay"></div>
   <div class="eco-content">
-    <h2>사람과 공간, 그리고 지구까지 깨끗하게</h2>
+    <h2>사람과 공간,<br>그리고 지구까지 깨끗하게</h2>
     <p>메가크리닝은 단순히 오염을 지우는 청소가 아니라,<br>사람과 자연이 함께 숨 쉬는 건강한 공간을 만듭니다.</p>
     <div class="eco-cards">
       <div class="eco-card"><i>🌿</i><span>친환경 세제 사용</span></div>
