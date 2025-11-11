@@ -626,58 +626,30 @@
   100% { opacity: 0; transform: translateY(20px); }
 }
 
-/* === 버튼 공통 === */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  flex-wrap: nowrap;
-}
-
-.btn-modern {
+.btn-flat {
   flex: 1;
-  padding: 14px 0;
-  font-weight: 800;
-  font-size: 15px;
   text-align: center;
-  border-radius: 12px;
+  padding: 12px 0;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 14px;
+  transition: all 0.3s;
   text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
 }
-
-/* 📞 지금 전화하기 버튼 */
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
+.btn-flat.call {
+  background: #2BB3FF;
+  color: white;
 }
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
+.btn-flat.call:hover {
+  background: #1a96e6;
 }
-
-/* 📋 서비스 보기 버튼 */
-.btn-service {
-  background: #fff;
-  color: #1e293b;
-  border: 2px solid #cfd8e3;
+.btn-flat.service {
+  background: #f9fafb;
+  color: #0f172a;
+  border: 2px solid #d1d5db;
 }
-.btn-service:hover {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-}
-
-/* 📱 모바일 대응 */
-@media (max-width: 768px) {
-  .btn-modern {
-    font-size: 14px;
-    padding: 12px 0;
-    border-radius: 10px;
-  }
+.btn-flat.service:hover {
+  background: #e2e8f0;
 }
 
   </style>
@@ -1114,5 +1086,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
