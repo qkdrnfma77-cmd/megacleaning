@@ -422,37 +422,50 @@
 }
 
 /* ============================= */
-/* 📱 헤더와 히어로 간격 조정 (모바일) */
+/* ✅ 헤더-히어로 간격 완전 정밀 보정 (모바일 기준) */
 /* ============================= */
 @media (max-width: 768px) {
-  /* 헤더 높이 보정 */
+  /* 헤더 자체 여백 최소화 */
   header .container {
-    padding: 10px 14px !important;
-    gap: 4px !important;
+    padding: 6px 12px !important;
+    gap: 0 !important;
   }
 
-  /* 히어로 섹션 상단 패딩 축소 */
+  /* 헤더 높이만큼 보정: 기존 패딩을 대폭 줄임 */
   .section.headroom {
-    padding-top: 95px !important; /* 기존 120px → 95px */
+    padding-top: 70px !important; /* 🔹기존 120~95px → 70px */
+    padding-bottom: 70px !important;
   }
 
-  /* 문구와 헤더 사이 간격 조정 */
+  /* 히어로 텍스트 간 간격 조정 */
   .section.headroom h1 {
-    margin-top: 4px !important; /* 위쪽 여백 최소화 */
-    margin-bottom: 6px !important;
+    font-size: 34px !important;
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
   }
 
-  /* 버튼 위 여백 줄이기 */
+  .section.headroom p {
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .section.headroom p:last-of-type {
+    margin-top: 4px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* 버튼과 영상 사이 간격 타이트하게 */
   .section.headroom .btn-primary,
   .section.headroom a[href="#services"] {
-    margin-top: 4px !important;
+    margin-bottom: 8px !important;
   }
 
-  /* 영상과 버튼 사이 간격도 살짝 줄이기 */
   .section.headroom div[style*="aspect-ratio:16/9"] {
-    margin-top: 12px !important;
+    margin-top: 10px !important;
   }
 }
+
 
   </style>
 
