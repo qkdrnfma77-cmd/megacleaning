@@ -345,6 +345,81 @@
   }
 }
 
+/* ============================= */
+/* ✅ 모바일 히어로 완전 복구 버전 */
+/* ============================= */
+@media (max-width: 768px) {
+  /* 전체 히어로 섹션 */
+  .section.headroom {
+    padding: 120px 0 80px;
+    background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
+  }
+
+  /* 내부 레이아웃 */
+  .section.headroom .container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 32px !important;
+    padding: 0 20px;
+  }
+
+  /* 메인 문구 */
+  .section.headroom h1 {
+    font-size: 34px !important;
+    line-height: 1.35 !important;
+    font-weight: 900;
+    color: #0f172a;
+    word-break: keep-all;
+    margin-bottom: 8px;
+  }
+
+  /* 보조 문구 */
+  .section.headroom p {
+    font-size: 16px !important;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  /* 파란 강조 문구 */
+  .section.headroom p:last-of-type {
+    font-size: 32px !important;
+    font-weight: 900;
+    color: var(--blue);
+    margin-top: 6px;
+  }
+
+  /* 버튼 영역 */
+  .section.headroom .btn-primary,
+  .section.headroom a[href="#services"] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* 영상 컨테이너 */
+  .section.headroom div[style*="aspect-ratio:16/9"] {
+    width: 100% !important;
+    max-width: 480px;
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  /* 유튜브 iframe */
+  .section.headroom iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    display: block;
+    border-radius: 20px;
+  }
+}
 
   </style>
 
