@@ -466,6 +466,64 @@
   }
 }
 
+/* ============================= */
+/* 🔽 스크롤 유도 화살표 + 애니메이션 */
+/* ============================= */
+.scroll-down {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 60px;
+  border: 2px solid #a0aec0;
+  border-radius: 25px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  transition: opacity 0.3s;
+}
+.scroll-down:hover { opacity: 1; }
+
+.scroll-down span {
+  width: 7px;
+  height: 7px;
+  background: #a0aec0;
+  border-radius: 50%;
+  margin-top: 10px;
+  animation: scroll-dot 2s infinite;
+}
+
+/* 🔹 화살표 움직임 */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, 6px); }
+  60% { transform: translate(-50%, 3px); }
+}
+@keyframes scroll-dot {
+  0% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(12px); }
+  100% { opacity: 0; transform: translateY(22px); }
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .scroll-down {
+    bottom: 18px;
+    width: 28px;
+    height: 50px;
+    border-width: 1.8px;
+  }
+  .scroll-down span {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 
   </style>
 
@@ -554,7 +612,15 @@
         style="width:100%;height:100%;object-fit:cover;">
       </iframe>
     </div>
+
+<!-- 👇 Hero 섹션 마지막 부분(</div></section> 직전)에 추가 -->
+<a href="#services" class="scroll-down" aria-label="스크롤 유도 버튼">
+  <span></span>
+</a>
+
   </div>
+
+
 </section>
 
 
@@ -721,7 +787,7 @@
   <div class="container">
     <div class="section-title">
       <h2>청소 작업 문의</h2>
-      <p>어떤 청소든 메가크리닝에게 맡기세요. 빠르고 친절하게 도와드립니다.</p>
+      <p>어떤 청소든 메가크리닝에게 맡기세요. <br>빠르고 친절하게 도와드립니다.</p>
     </div>
 
     <!-- ✅ 문의 폼 -->
@@ -853,7 +919,7 @@ function showCenterAlert(title, text) {
       <a href="https://blog.naver.com/mega-cleaning" target="_blank"><img src="https://i.imgur.com/CNO6hSB.png"></a>
       <a href="https://talk.naver.com/profile/w64inc4" target="_blank"><img src="https://i.imgur.com/7Ku7SQb.png"></a>
       <a href="https://www.instagram.com/megacleaning_korea" target="_blank"><img src="https://i.imgur.com/Zn3MzvB.png"></a>
-      <a href="https://pf.kakao.com/n_Lqva" target="_blank"><img src="https://i.imgur.com/Yn3RYzH.png"></a>
+      <a href="https://pf.kakao.com/_Lqvan" target="_blank"><img src="https://i.imgur.com/Yn3RYzH.png"></a>
     </div>
   </div>
   <div class="footer-bottom">© 2025 메가크리닝. All rights reserved.</div>
@@ -875,5 +941,28 @@ window.addEventListener('DOMContentLoaded', () => {
   titles.forEach(el => titleObs.observe(el));
 });
 </script>
+
+<script>
+// 🔽 부드러운 스크롤 이동
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.querySelector(".scroll-down");
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector("#services");
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 50,
+          behavior: "smooth",
+        });
+      }
+    });
+  }
+});
+</script>
+
+
 </body>
 </html>
+
+
