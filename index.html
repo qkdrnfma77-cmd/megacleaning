@@ -466,484 +466,295 @@
   }
 }
 
-/* ============================= */
-/* 🔽 스크롤 유도 화살표 + 애니메이션 */
-/* ============================= */
-.scroll-down {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 34px;
-  height: 60px;
-  border: 2px solid #a0aec0;
-  border-radius: 25px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  opacity: 0.8;
-  animation: bounce 2s infinite;
-  transition: opacity 0.3s;
-}
-.scroll-down:hover { opacity: 1; }
 
-.scroll-down span {
-  width: 7px;
-  height: 7px;
-  background: #a0aec0;
-  border-radius: 50%;
-  margin-top: 10px;
-  animation: scroll-dot 2s infinite;
-}
-
-/* 🔹 화살표 움직임 */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, 6px); }
-  60% { transform: translate(-50%, 3px); }
-}
-@keyframes scroll-dot {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(12px); }
-  100% { opacity: 0; transform: translateY(22px); }
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .scroll-down {
-    bottom: 18px;
-    width: 28px;
-    height: 50px;
-    border-width: 1.8px;
-  }
-  .scroll-down span {
-    width: 6px;
-    height: 6px;
-  }
-}
-
-/* ============================= */
-/* ✅ Hero 버튼 한 줄 정렬 + 간격 조정 */
-/* ============================= */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: nowrap;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.btn-call,
-.btn-service {
-  flex: 1;
-  text-align: center;
-  padding: 14px 10px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-call {
-  background: #2BB3FF;
-  color: #fff;
-}
-
-.btn-call:hover {
-  background: #1a96e6;
-}
-
-.btn-service {
-  background: #fff;
-  border: 2px solid #d1d5db;
-  color: #1e293b;
-}
-
-.btn-service:hover {
-  background: #f1f5f9;
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: row;
-    gap: 8px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-  .btn-call, .btn-service {
-    font-size: 14px;
-    padding: 12px 8px;
-  }
-}
-
-/* ============================= */
-/* 🔽 스크롤 유도 화살표 — 영상 아래 위치 */
-/* ============================= */
-.scroll-down {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  margin-top: 14px;
-  width: 28px;
-  height: 44px;
-  border: 2px solid #2BB3FF;
-  border-radius: 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0.8;
-  animation: bounce 2s infinite;
-  transition: opacity 0.3s;
-}
-
-.scroll-down span {
-  width: 6px;
-  height: 6px;
-  background: #2BB3FF;
-  border-radius: 50%;
-  margin-top: 8px;
-  animation: scroll-dot 2s infinite;
-}
-
-.scroll-down:hover { opacity: 1; }
-
-/* 🔹 애니메이션 효과 */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(5px); }
-  60% { transform: translateY(3px); }
-}
-@keyframes scroll-dot {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(10px); }
-  100% { opacity: 0; transform: translateY(20px); }
-}
-
-.btn-flat {
-  flex: 1;
-  text-align: center;
-  padding: 12px 0;
-  font-weight: 700;
-  font-size: 15px;
-  border-radius: 14px;
-  transition: all 0.3s;
-  text-decoration: none;
-}
-.btn-flat.call {
-  background: #2BB3FF;
-  color: white;
-}
-.btn-flat.call:hover {
-  background: #1a96e6;
-}
-.btn-flat.service {
-  background: #f9fafb;
-  color: #0f172a;
-  border: 2px solid #d1d5db;
-}
-.btn-flat.service:hover {
-  background: #e2e8f0;
-}
-
-
-/* ============================= */
-/* ✅ 버튼 크기/정렬 통일 */
-/* ============================= */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 18px 0 16px;
-  flex-wrap: nowrap;
-}
-
-.btn-modern {
-  flex: 1;
-  text-align: center;
-  padding: 14px 0;
-  font-weight: 800;
-  font-size: 15px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  height: 52px; /* 동일 높이 지정 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-/* 📞 지금 전화하기 */
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
-}
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
-}
-
-/* ✨ 서비스 보기 */
-.btn-service {
-  background: #fff;
-  border: 2px solid #cfd8e3;
-  color: #1e293b;
-}
-.btn-service:hover {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .hero-buttons {
-    gap: 8px;
-  }
-  .btn-modern {
-    font-size: 14px;
-    padding: 12px 0;
-    height: 48px;
-  }
-}
-
-/* ============================= */
-/* ✅ 스크롤 화살표 (심플 SVG형) */
-/* ============================= */
-.scroll-down {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto 0;
-  width: 40px;
-  height: 40px;
-  animation: arrowBounce 1.6s infinite;
-}
-
-@keyframes arrowBounce {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
-
-/* 모바일 화살표 크기 조정 */
-@media (max-width: 768px) {
-  .scroll-down {
-    width: 36px;
-    height: 36px;
-    margin-top: 12px;
-  }
-}
-
-/* ============================= */
-/* ✅ 버튼 크기/정렬 통일 */
-/* ============================= */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 18px 0 16px;
-  flex-wrap: nowrap;
-}
-
-.btn-modern {
-  flex: 1;
-  text-align: center;
-  padding: 14px 0;
-  font-weight: 800;
-  font-size: 15px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  height: 52px; /* 동일 높이 지정 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-/* 📞 지금 전화하기 */
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
-}
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
-}
-
-/* ✨ 서비스 보기 */
-.btn-service {
-  background: #fff;
-  border: 2px solid #cfd8e3;
-  color: #1e293b;
-}
-.btn-service:hover {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .hero-buttons {
-    gap: 8px;
-  }
-  .btn-modern {
-    font-size: 14px;
-    padding: 12px 0;
-    height: 48px;
-  }
-}
-
-/* ============================= */
-/* ✅ 스크롤 화살표 (심플 SVG형) */
-/* ============================= */
-.scroll-down {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto 0;
-  width: 40px;
-  height: 40px;
-  animation: arrowBounce 1.6s infinite;
-}
-
-@keyframes arrowBounce {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
-
-/* 모바일 화살표 크기 조정 */
-@media (max-width: 768px) {
-  .scroll-down {
-    width: 36px;
-    height: 36px;
-    margin-top: 12px;
-  }
-}
 
 <style>
 /* ============================= */
-/* ✅ 버튼 스타일 정밀 보정 */
+/* ✅ Hero 버튼 & 영상 완전 정렬 버전 */
 /* ============================= */
+
+/* 버튼 영역 */
 .hero-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 18px auto 16px;
+  gap: 14px;
+  margin-top: 20px;
+  margin-bottom: 24px;
   max-width: 420px;
 }
 
-.hero-btn {
-  flex: 1;
+/* 버튼 공통 스타일 */
+.btn-modern {
+  flex: 1 1 0;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 52px;
-  font-size: 15px;
+  height: 54px;
+  padding: 0 16px;
+  font-size: 16px;
   font-weight: 800;
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.25s ease;
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
 /* 📞 지금 전화하기 */
-.hero-btn.call {
+.btn-call {
   background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
   color: #fff;
-  box-shadow: 0 4px 10px rgba(43,179,255,0.25);
   border: none;
+  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
 }
-.hero-btn.call:hover {
+.btn-call:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(43,179,255,0.35);
 }
 
 /* 🧾 서비스 보기 */
-.hero-btn.service {
+.btn-service {
   background: #fff;
   border: 2px solid #d1d5db;
   color: #1e293b;
   box-shadow: 0 4px 8px rgba(0,0,0,0.03);
 }
-.hero-btn.service:hover {
+.btn-service:hover {
   background: #f8fafc;
   transform: translateY(-2px);
 }
 
-/* 모바일 크기 조정 */
+/* 영상 균형 조정 */
+.section.headroom iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.section.headroom div[style*="aspect-ratio:16/9"] {
+  max-height: 380px; /* 🔹 기존보다 약간 낮춰 왼쪽 텍스트와 균형 */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* 반응형 (모바일) */
 @media (max-width: 768px) {
   .hero-buttons {
-    max-width: 95%;
-    gap: 8px;
+    max-width: 94%;
+    gap: 10px;
   }
-  .hero-btn {
-    height: 48px;
-    font-size: 14px;
+  .btn-modern {
+    height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
   }
+  .section.headroom div[style*="aspect-ratio:16/9"] {
+    max-height: 240px; /* 모바일 영상 높이 축소 */
+    border-radius: 16px;
+  }
+}
+</style>
+
+
+
+<style>
+/* ✅ 전체 레이아웃 */
+.section.headroom {
+  padding: 80px 5%;
+  background: #f9fcff;
+}
+.section.headroom .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ✅ 텍스트 */
+.hero-text h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f1923;
+  margin-bottom: 16px;
+}
+.hero-text p {
+  font-size: 20px;
+  color: #4c5660;
+  margin-bottom: 16px;
+}
+.hero-text .brand {
+  color: #1ea9ff;
+  font-size: 44px;
+  font-weight: 800;
+}
+
+/* ✅ 버튼 디자인 */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.hero-buttons button {
+  height: 64px;
+  padding: 0 24px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.hero-buttons .call {
+  background: linear-gradient(90deg, #1ea9ff, #0078ff);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
+}
+.hero-buttons .call:hover {
+  transform: translateY(-2px);
+}
+.hero-buttons .service {
+  background: #fff;
+  border: 2px solid #d9e3ec;
+  color: #111;
+}
+.hero-buttons .service:hover {
+  border-color: #1ea9ff;
+}
+
+/* ✅ 영상 비율 유지 (16:9 완벽 고정) */
+.hero-video .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* ✅ 16:9 비율 고정 */
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.hero-video .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 24px;
 }
 
 /* ============================= */
-/* ✅ 스크롤 유도 화살표 (영상 아래 중앙) */
+/* 🎯 PC: 영상 아래 정중앙 */
 /* ============================= */
 .scroll-down {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px auto 0;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
+  margin: 26px auto 0;
+  border: 2px solid #1ea9ff;
+  color: #1ea9ff;
   border-radius: 50%;
-  border: 2px solid #2BB3FF;
-  animation: pulse 1.8s infinite;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(30,169,255,0.25);
   cursor: pointer;
+  animation: arrowBounce 1.6s infinite;
+  transition: all 0.3s ease;
 }
 
-.scroll-down .arrow {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  border-left: 2px solid #2BB3FF;
-  border-bottom: 2px solid #2BB3FF;
-  transform: rotate(-45deg);
-  animation: arrowMove 1.8s infinite;
+.scroll-down:hover {
+  transform: translateY(4px);
+  box-shadow: 0 4px 18px rgba(30,169,255,0.35);
 }
 
-/* 🔹 애니메이션 효과 */
-@keyframes arrowMove {
-  0%, 100% { transform: rotate(-45deg) translate(0, 0); opacity: 0.6; }
-  50% { transform: rotate(-45deg) translate(0, 4px); opacity: 1; }
+@keyframes arrowBounce {
+  0%,100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(43,179,255,0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(43,179,255,0.05); }
-}
-
-/* 모바일 보정 */
+/* ============================= */
+/* 📱 모바일: 영상 안쪽 중앙 하단 고정 */
+/* ============================= */
 @media (max-width: 768px) {
+  /* 🎬 영상 영역 기준으로 정렬되게 */
+  .hero-video {
+    position: relative;
+  }
+
   .scroll-down {
-    width: 28px;
-    height: 28px;
-    margin-top: 10px;
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%) !important; /* ✅ 완전 중앙 고정 */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: 2px solid #2BB3FF;
+    color: #2BB3FF;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    animation: arrowFloat 2s infinite ease-in-out;
+    z-index: 10;
+  }
+
+  @keyframes arrowFloat {
+    0%,100% { transform: translate(-50%, 0); opacity: 0.8; }
+    50% { transform: translate(-50%, -6px); opacity: 1; }
+  }
+
+  .scroll-down svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+/* ✅ 반응형 */
+@media (max-width: 768px) {
+  .section.headroom .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+  }
+  .hero-text h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .hero-text .brand {
+    font-size: 32px;
+  }
+  .hero-video .video-wrapper {
+    width: 92%;
+    max-width: 480px;
+    padding-top: 56.25%;
+  }
+  .scroll-down {
+    margin-top: 12px;
+  }
+  .hero-buttons {
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-buttons button {
+    height: 56px;
+    font-size: 16px;
+    border-radius: 12px;
   }
 }
 </style>
+
 
 
   </style>
@@ -991,64 +802,44 @@
 <!-- 이하 동일: HERO ~ FOOTER (폼 포함) -->
 <!-- 기존과 동일한 내용 붙여넣으시면 완성 -->
 <!-- ✅ HERO SECTION -->
-<section class="section headroom"
-         style="padding:100px 0;background:linear-gradient(180deg,#F5FAFF,#FFFFFF);">
-  <div class="container"
-       style="max-width:1120px;margin:0 auto;display:grid;
-              grid-template-columns:1.1fr 0.9fr;align-items:center;gap:60px;">
+<section class="section headroom">
+  <div class="container">
+    <!-- ✅ 왼쪽 텍스트 -->
+    <div class="hero-text">
+      <h1>늘 곁에서, 늘 깨끗하게</h1>
+      <p>"청소 그 이상의 가치, 고객 곁에서 함께하는"</p>
+      <h2 class="brand">메가크리닝</h2>
 
-    <!-- 왼쪽 텍스트 -->
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <h1 style="font-size:56px;font-weight:900;line-height:1.2;color:#0f172a;margin:0;">
-        늘 곁에서, 늘 깨끗하게
-      </h1>
-      <p style="font-size:24px;font-weight:500;color:#475569;margin:0;">
-        "청소 그 이상의 가치, 고객 곁에서 함께하는"
-      </p>
-      <p style="font-size:48px;font-weight:900;color:#2BB3FF;margin:6px 0 0;">메가크리닝</p>
-
-      <!-- 🔹 버튼 한 줄 배치 -->
-<div class="hero-buttons">
-  <a href="tel:010-4355-9000" class="btn-modern btn-call">
-    📞 지금 전화하기
-  </a>
-  <a href="#services" class="btn-modern btn-service">
-    서비스 보기
-  </a>
-</div>
-
-<!-- 🔹 스크롤 유도 화살표 -->
-<a href="#services" class="scroll-down" aria-label="아래로 이동">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-       xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 4V20M12 20L6 14M12 20L18 14"
-          stroke="#2BB3FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</a>
-
-
-
+      <!-- 버튼 영역 -->
+      <div class="hero-buttons">
+        <button class="call">
+          📞 지금 전화하기
+        </button>
+        <button class="service">
+          서비스 보기
+        </button>
+      </div>
     </div>
 
-    <!-- 오른쪽 동영상 -->
-    <div style="border-radius:28px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12);
-                aspect-ratio:16/9;max-height:420px;background:#000;">
-      <iframe 
-        src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
-        title="메가크리닝 홍보영상"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        style="width:100%;height:100%;object-fit:cover;">
-      </iframe>
+    <!-- ✅ 오른쪽 영상 -->
+    <div class="hero-video">
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
-
-
-
   </div>
 
-
+  <!-- ✅ 스크롤 유도 화살표 -->
+  <div class="scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
 </section>
+
+
 
 
 <!-- 이하: 클린서비스 ~ 푸터는 동일 구조 -->
@@ -1388,6 +1179,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function adjustHeroHeight() {
+    const textBox = document.querySelector(".section.headroom .container > div:first-child");
+    const videoBox = document.querySelector(".section.headroom .container > div:last-child");
+
+    if (!textBox || !videoBox) return;
+
+    const textHeight = textBox.offsetHeight;
+
+    if (window.innerWidth > 768) {
+      // PC: 텍스트 높이에 맞춤
+      videoBox.style.height = textHeight + "px";
+      videoBox.style.aspectRatio = "auto";
+    } else {
+      // 모바일: 자동 비율 유지
+      videoBox.style.height = "";
+      videoBox.style.aspectRatio = "16 / 9";
+    }
+  }
+
+  adjustHeroHeight();
+  window.addEventListener("resize", adjustHeroHeight);
+});
+</script>
 
 </body>
 </html>
