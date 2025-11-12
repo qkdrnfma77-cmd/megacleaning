@@ -776,6 +776,69 @@
     max-width: 500px !important;
   }
 }
+
+/* ✅ 스타일리시 화살표 업그레이드 */
+.arrow-center {
+  text-align: center !important;
+  margin-top: 40px !important;
+}
+
+.scroll-down {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 42px !important;          /* 🔹 기존보다 1.3배 확대 */
+  height: 42px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 30% 30%, #3CCBFF, #007BFF) !important;
+  box-shadow:
+    0 0 10px rgba(43,179,255,0.6),
+    0 0 20px rgba(0,153,255,0.4),
+    inset 0 0 5px rgba(255,255,255,0.2) !important;
+  animation: arrowFloat 2.8s infinite ease-in-out !important;
+  transition: transform 0.3s ease !important;
+}
+.scroll-down:hover {
+  transform: translateY(-4px) scale(1.1) !important;
+  box-shadow:
+    0 0 15px rgba(43,179,255,0.7),
+    0 0 30px rgba(0,153,255,0.5),
+    inset 0 0 8px rgba(255,255,255,0.25) !important;
+}
+.scroll-down::after {
+  content: "" !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-left: 2.5px solid #fff !important;
+  border-bottom: 2.5px solid #fff !important;
+  transform: rotate(-45deg) !important;
+  margin-top: 2px !important;
+}
+
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+/* ✅ 모바일에서는 크기 살짝 축소 */
+@media (max-width: 900px) {
+  .scroll-down {
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .scroll-down::after {
+    width: 7px !important;
+    height: 7px !important;
+    border-width: 2px !important;
+  }
+}
+
 </style>
 
 
