@@ -473,15 +473,15 @@
 /* ✅ Hero 버튼 & 영상 완전 정렬 버전 */
 /* ============================= */
 
-/* 버튼 영역 */
+/* ✅ HERO 버튼 크기 축소 & 정렬 보정 */
 .hero-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
-  margin-top: 20px;
-  margin-bottom: 24px;
-  max-width: 420px;
+  gap: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  max-width: 360px;
 }
 
 /* 버튼 공통 스타일 */
@@ -492,11 +492,11 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 54px;
-  padding: 0 16px;
-  font-size: 16px;
+  height: 46px; /* 🔹 기존 54px → 살짝 축소 */
+  padding: 0 14px;
+  font-size: 15px; /* 🔹 기존 16px → 약간 축소 */
   font-weight: 800;
-  border-radius: 12px;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.25s ease;
   box-sizing: border-box;
@@ -508,7 +508,7 @@
   background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
   color: #fff;
   border: none;
-  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
+  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
 }
 .btn-call:hover {
   transform: translateY(-2px);
@@ -520,7 +520,7 @@
   background: #fff;
   border: 2px solid #d1d5db;
   color: #1e293b;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.03);
 }
 .btn-service:hover {
   background: #f8fafc;
@@ -558,304 +558,254 @@
     border-radius: 16px;
   }
 }
+
+
 </style>
 
-
-
 <style>
-/* ✅ 전체 레이아웃 */
-.section.headroom {
-  padding: 80px 5%;
-  background: #f9fcff;
-}
-.section.headroom .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* ✅ HERO VIDEO + 화살표 중앙 고정 (YouTube 버전) */
+.video-area {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
 }
 
-/* ✅ 텍스트 */
-.hero-text h1 {
-  font-size: 48px;
-  font-weight: 800;
-  color: #0f1923;
-  margin-bottom: 16px;
-}
-.hero-text p {
-  font-size: 20px;
-  color: #4c5660;
-  margin-bottom: 16px;
-}
-.hero-text .brand {
-  color: #1ea9ff;
-  font-size: 44px;
-  font-weight: 800;
-}
-
-/* ✅ 버튼 디자인 */
-.hero-buttons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 24px;
-}
-.hero-buttons button {
-  height: 64px;
-  padding: 0 24px;
-  border-radius: 14px;
-  font-size: 18px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.hero-buttons .call {
-  background: linear-gradient(90deg, #1ea9ff, #0078ff);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
-}
-.hero-buttons .call:hover {
-  transform: translateY(-2px);
-}
-.hero-buttons .service {
-  background: #fff;
-  border: 2px solid #d9e3ec;
-  color: #111;
-}
-.hero-buttons .service:hover {
-  border-color: #1ea9ff;
-}
-
-/* ✅ 영상 비율 유지 (16:9 완벽 고정) */
-.hero-video .video-wrapper {
+/* 16:9 비율 유지 */
+.video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* ✅ 16:9 비율 고정 */
-  border-radius: 24px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
   overflow: hidden;
-  background: #000;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-.hero-video .video-wrapper iframe {
+.video-frame {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+.video-frame iframe {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border: none;
-  border-radius: 24px;
+  object-fit: cover;
 }
 
-/* ============================= */
-/* 🎯 PC: 영상 아래 정중앙 */
-/* ============================= */
+/* ✅ 화살표 - 섹션 전체 기준 정중앙 */
 .scroll-down {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 28px; /* PC에서는 섹션 하단 기준 */
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.96);
+  border: 2px solid #2BB3FF;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
-  margin: 26px auto 0;
-  border: 2px solid #1ea9ff;
-  color: #1ea9ff;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 3px 12px rgba(30,169,255,0.25);
-  cursor: pointer;
-  animation: arrowBounce 1.6s infinite;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  animation: arrowFloatY 2s infinite ease-in-out;
+  z-index: 30;
 }
 
-.scroll-down:hover {
-  transform: translateY(4px);
-  box-shadow: 0 4px 18px rgba(30,169,255,0.35);
+.scroll-down svg {
+  width: 24px;
+  height: 24px;
+  stroke: #2BB3FF;
 }
 
-@keyframes arrowBounce {
-  0%,100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(6px); opacity: 1; }
+@keyframes arrowFloatY {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+    opacity: 1;
+  }
 }
 
-/* ============================= */
-/* 📱 모바일: 영상 안쪽 중앙 하단 고정 */
-/* ============================= */
-@media (max-width: 768px) {
-  /* 🎬 영상 영역 기준으로 정렬되게 */
-  .hero-video {
+/* ✅ 모바일에서는 영상 아래 정렬 */
+@media (max-width: 900px) {
+  .scroll-down {
     position: relative;
-  }
-
-  .scroll-down {
-    position: absolute;
+    bottom: auto;
+    margin: 18px auto 0;
     left: 50%;
-    bottom: 14px;
-    transform: translateX(-50%) !important; /* ✅ 완전 중앙 고정 */
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.9);
-    border: 2px solid #2BB3FF;
-    color: #2BB3FF;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    animation: arrowFloat 2s infinite ease-in-out;
-    z-index: 10;
-  }
-
-  @keyframes arrowFloat {
-    0%,100% { transform: translate(-50%, 0); opacity: 0.8; }
-    50% { transform: translate(-50%, -6px); opacity: 1; }
-  }
-
-  .scroll-down svg {
-    width: 20px;
-    height: 20px;
+    transform: translateX(-50%);
   }
 }
 
+/* ✅ HERO 레이아웃 */
+.section.headroom {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
+}
+.section.headroom .container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
 
+/* ✅ 영상 (유튜브 16:9 유지) */
+.video-area {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  object-fit: cover;
+}
 
-/* ✅ 반응형 */
-@media (max-width: 768px) {
+/* ✅ 화살표: 섹션 기준 중앙 */
+.scroll-down {
+  position: absolute;
+  bottom: 60px; /* 🔹 영상보다 위쪽으로 올림 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.96);
+  border: 2px solid #2BB3FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  animation: arrowFloatY 2s infinite ease-in-out;
+  z-index: 20;
+}
+.scroll-down svg {
+  width: 24px;
+  height: 24px;
+  stroke: #2BB3FF;
+}
+
+@keyframes arrowFloatY {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.8; }
+  50% { transform: translate(-50%, -6px); opacity: 1; }
+}
+
+/* ✅ 모바일 반응형 */
+@media (max-width: 900px) {
   .section.headroom .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
     text-align: center;
-    gap: 32px;
-  }
-  .hero-text h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
-  }
-  .hero-text .brand {
-    font-size: 32px;
-  }
-  .hero-video .video-wrapper {
-    width: 92%;
-    max-width: 480px;
-    padding-top: 56.25%;
+    gap: 40px;
   }
   .scroll-down {
-    margin-top: 12px;
-  }
-  .hero-buttons {
-    justify-content: center;
-    gap: 12px;
-  }
-  .hero-buttons button {
-    height: 56px;
-    font-size: 16px;
-    border-radius: 12px;
+    position: relative;
+    bottom: auto;
+    margin: 20px auto 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
+/* ✅ HERO 버튼 크기 미세 조정 (가로폭 축소) */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  max-width: 320px; /* 🔹 기존 360px → 폭 살짝 축소 */
+}
 
-</style>
+/* 버튼 공통 스타일 */
+.btn-modern {
+  flex: 1 1 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 46px;
+  padding: 0 10px; /* 🔹 좌우 여백 살짝 축소 */
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
 
-<style>
-/* ============================= */
-/* 📱 모바일 히어로 완전 복구 */
-/* ============================= */
-@media (max-width: 768px) {
-  /* ✅ 히어로 전체 */
-  .section.headroom {
-    padding-top: 100px !important;
-    padding-bottom: 60px !important;
-    background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
-  }
+/* 📞 지금 전화하기 */
+.btn-call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
+}
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
+}
 
-  /* ✅ 텍스트 정렬 및 크기 */
-  .section.headroom h1 {
-    font-size: 28px !important;
-    line-height: 1.35 !important;
-    text-align: center !important;
-    word-break: keep-all;
-  }
-  .section.headroom p {
-    font-size: 15px !important;
-    text-align: center !important;
-    color: #475569 !important;
-  }
-  .section.headroom p:last-of-type {
-    font-size: 24px !important;
-    font-weight: 900 !important;
-    color: #2BB3FF !important;
-    margin-top: 4px !important;
-  }
+/* 🧾 서비스 보기 */
+.btn-service {
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #1e293b;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+}
+.btn-service:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
 
-  /* ✅ 버튼 영역 한 줄 정렬 */
+/* ✅ 영상 16:9 비율 완벽 고정 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* ✅ 고정 비율 */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+/* ✅ 모바일 */
+@media (max-width: 900px) {
   .hero-buttons {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin-top: 16px !important;
-    margin-bottom: 12px !important;
+    flex-direction: column;
+    max-width: 90%;
   }
-  .hero-buttons a {
-    flex: 1 !important;
-    text-align: center !important;
-    height: 48px !important;
-    font-size: 14px !important;
-  }
-
-  /* ✅ 영상 영역 */
-  .section.headroom div[style*="aspect-ratio"] {
-    width: 100% !important;
-    max-width: 480px !important;
-    aspect-ratio: 16/9 !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    position: relative !important;
-    display: block !important;
-  }
-
-  /* ✅ iframe 영상 */
-  .section.headroom iframe {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    aspect-ratio: 16/9 !important;
-    border-radius: 18px !important;
-  }
-
-  /* ✅ 화살표를 영상 안쪽 중앙에 배치 */
-  .scroll-down {
-    position: absolute !important;
-    left: 50% !important;
-    bottom: 14px !important;
-    transform: translateX(-50%) !important;
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 50% !important;
-    background: rgba(255,255,255,0.9) !important;
-    border: 2px solid #2BB3FF !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    z-index: 10 !important;
-    animation: arrowFloat 2s infinite ease-in-out;
-  }
-  .scroll-down svg {
-    width: 22px !important;
-    height: 22px !important;
-  }
-
-  @keyframes arrowFloat {
-    0%,100% { transform: translate(-50%, 0); opacity: 0.8; }
-    50% { transform: translate(-50%, -6px); opacity: 1; }
+  .btn-modern {
+    height: 44px;
+    font-size: 14px;
   }
 }
-</style>
 
 
   </style>
@@ -902,43 +852,590 @@
 
 <!-- 이하 동일: HERO ~ FOOTER (폼 포함) -->
 <!-- 기존과 동일한 내용 붙여넣으시면 완성 -->
-<!-- ✅ HERO SECTION -->
+<!-- ✅ 완전 독립형 히어로 섹션 -->
+<!-- ✅ Hero Section (좌우 분할형 유지 + 반응형 완전 보정) -->
+<!-- ✅ HERO 섹션 -->
 <section class="section headroom">
   <div class="container">
-    <!-- ✅ 왼쪽 텍스트 -->
+
+    <!-- 왼쪽 텍스트 -->
     <div class="hero-text">
       <h1>늘 곁에서, 늘 깨끗하게</h1>
       <p>"청소 그 이상의 가치, 고객 곁에서 함께하는"</p>
-      <h2 class="brand">메가크리닝</h2>
+      <p class="highlight">메가크리닝</p>
 
-      <!-- 버튼 영역 -->
       <div class="hero-buttons">
-        <button class="call">
-          📞 지금 전화하기
-        </button>
-        <button class="service">
-          서비스 보기
-        </button>
+        <a href="tel:010-4355-9000" class="btn-modern btn-call">📞 지금 전화하기</a>
+        <a href="#services" class="btn-modern btn-service">서비스 보기</a>
       </div>
     </div>
 
-    <!-- ✅ 오른쪽 영상 -->
-    <div class="hero-video">
+    <!-- 오른쪽 유튜브 영상 -->
+    <div class="video-area">
       <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
+          title="MegaCleaning Video"
           frameborder="0"
-          allowfullscreen
-        ></iframe>
+          allow="autoplay; encrypted-media; fullscreen"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ✅ 섹션 기준 화살표 -->
+  <a href="#services" class="scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+         viewBox="0 0 24 24" stroke="#2BB3FF" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </a>
+</section>
+
+
+<style>
+@keyframes arrowFloat {
+  0%,100% { transform: translate(-50%, 0); opacity: 0.7; }
+  50% { transform: translate(-50%, -5px); opacity: 1; }
+}
+
+/* ✅ 반응형 (모바일에서 영상이 아래로 이동) */
+@media (max-width: 900px) {
+  .section.headroom .container {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 40px !important;
+  }
+  .section.headroom h1 {
+    font-size: 34px !important;
+    line-height: 1.35 !important;
+  }
+  .section.headroom p {
+    font-size: 16px !important;
+  }
+  .section.headroom p:last-of-type {
+    font-size: 26px !important;
+    color: #2BB3FF;
+  }
+  .video-area {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  .scroll-down {
+    bottom: -20px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+/* ✅ 수정된 HERO 관련 CSS (영상 비율 + 화살표 고정 완벽 버전) */
+
+/* 전체 배경과 그리드 */
+.section.headroom {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
+}
+
+.section.headroom .container {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* 텍스트 */
+.section.headroom h1 {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.section.headroom p {
+  font-size: 20px;
+  color: var(--sub);
+}
+.section.headroom p:last-of-type {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--blue);
+}
+
+/* 버튼 */
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* ✅ 영상 영역 */
+.video-area {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #000;
+}
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 화살표 (transform 충돌 제거) */
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid var(--blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  animation: arrowFloatY 2s infinite ease-in-out;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-down svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--blue);
+}
+
+.scroll-down:hover {
+  background: linear-gradient(145deg, #E6F7FF, #FFFFFF);
+  box-shadow: 0 6px 14px rgba(43, 179, 255, 0.3);
+}
+
+@keyframes arrowFloatY {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+    opacity: 1;
+  }
+}
+
+/* ✅ 모바일 */
+@media (max-width: 900px) {
+  .section.headroom .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .section.headroom h1 {
+    font-size: 36px;
+  }
+  .section.headroom p {
+    font-size: 16px;
+  }
+  .section.headroom p:last-of-type {
+    font-size: 30px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .scroll-down {
+    width: 40px;
+    height: 40px;
+    bottom: 12px;
+  }
+}
+
+
+</style>
+
+
+
+
+
+
+<!-- 이하: 클린서비스 ~ 푸터는 동일 구조 -->
+<!-- === SERVICES (클린 서비스) === -->
+<section id="services" class="section fade-up">
+  <div class="container">
+    <div class="section-title">
+      <h2>클린 서비스</h2>
+      <p>홈청소 · 사업장청소 · 반려동물 케어 · 특수청소 · 제품청소 · 예방/항균시공</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3 class="service-title">홈청소</h3>
+        <p class="service-desc">입주부터 거주까지, 집 안 곳곳까지 청결하게</p>
+        <div class="tag-wrap">
+          <span class="tag">입주청소</span><span class="tag">이사청소</span><span class="tag">인테리어청소</span>
+          <span class="tag">거주대청소</span><span class="tag">부분청소</span><span class="tag">정기관리</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <h3 class="service-title">사업장청소</h3>
+        <p class="service-desc">사무실과 업소 공간을 효율적으로 깔끔하게</p>
+        <div class="tag-wrap">
+          <span class="tag">정기관리</span><span class="tag">사무실</span><span class="tag">병원</span>
+          <span class="tag">학원</span><span class="tag">음식점</span><span class="tag">유리청소</span><span class="tag">인테리어청소</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <h3 class="service-title">반려동물 케어</h3>
+        <p class="service-desc">반려동물과 함께 살아도 청결하게, 쾌적하게</p>
+        <div class="tag-wrap">
+          <span class="tag">강아지</span><span class="tag">고양이</span><span class="tag">거주대청소</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <h3 class="service-title">특수청소</h3>
+        <p class="service-desc">고난도 현장도 안전하게, 철저하게</p>
+        <div class="tag-wrap">
+          <span class="tag">화재복구</span><span class="tag">쓰레기집</span><span class="tag">폐기물</span>
+          <span class="tag">고독사</span><span class="tag">수해</span><span class="tag">곰팡이</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <h3 class="service-title">제품청소</h3>
+        <p class="service-desc">분해 세척으로 제품 수명 연장과 위생까지</p>
+        <div class="tag-wrap">
+          <span class="tag">에어컨</span><span class="tag">세탁기</span><span class="tag">냉장고</span>
+          <span class="tag">후드</span><span class="tag">침대</span><span class="tag">쇼파</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <h3 class="service-title">예방/항균시공</h3>
+        <p class="service-desc">오염·세균·벌레까지 차단하는 스마트 시공</p>
+        <div class="tag-wrap">
+          <span class="tag">항균코팅</span><span class="tag">탈취</span><span class="tag">방역소독</span>
+          <span class="tag">나노코팅</span><span class="tag">실리콘시공</span><span class="tag">곰팡이방지</span><span class="tag">방충망</span>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ✅ 스크롤 유도 화살표 -->
-  <div class="scroll-down">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+<!-- === ADVANTAGES (메가크리닝의 강점) === -->
+<section id="advantages" class="section fade-up" style="background:#fff;">
+  <div class="container">
+    <div class="section-title">
+      <h2>메가크리닝의 강점</h2>
+      <p>왜 ‘메가크리닝’일까요?</p>
+    </div>
+    <div class="advantage-grid">
+      <div class="adv-card">
+        <img src="https://i.imgur.com/c5puseh.png" alt="">
+        <div class="adv-overlay"><div class="adv-text">친절한 상담은 기본</div></div>
+      </div>
+      <div class="adv-card">
+        <img src="https://i.imgur.com/3lXhwrG.png" alt="">
+        <div class="adv-overlay"><div class="adv-text">최상의 퀄리티 보장</div></div>
+      </div>
+      <div class="adv-card">
+        <img src="https://i.imgur.com/fau5MZt.png" alt="">
+        <div class="adv-overlay"><div class="adv-text">확실한 사후관리</div></div>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- === ABOUT 메가크리닝 === -->
+<section id="about" class="section fade-up" style="background:#fefefe;">
+  <div class="container">
+    <div>
+      <div class="section-title" style="text-align:left;">
+        <h2>ABOUT 메가크리닝</h2>
+      </div>
+      <p style="font-size:22px;font-weight:800;color:#0f172a;margin-bottom:8px;">
+        정직한 청소, 확실한 결과
+      </p>
+      <p style="font-size:16px;color:#475569;line-height:1.6;margin-bottom:20px;">
+        오늘도 끝까지 책임지는 메가크리닝이 되겠습니다.
+      </p>
+      <a href="#inquiry" class="btn btn-primary">문의하기</a>
+    </div>
+    <div>
+      <img src="https://i.imgur.com/V18rNT2.gif"
+           alt="메가크리닝 현장"
+           style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;">
+    </div>
+  </div>
+</section>
+
+<!-- === ECO 친환경 섹션 === -->
+<section id="eco" class="eco-section fade-up">
+  <div class="eco-overlay"></div>
+  <div class="eco-content">
+    <h2>사람과 공간,<br>그리고 지구까지 깨끗하게</h2>
+    <p>메가크리닝은 단순히 오염을 지우는 청소가 아니라,<br>사람과 자연이 함께 숨 쉬는 건강한 공간을 만듭니다.</p>
+    <div class="eco-cards">
+      <div class="eco-card"><i>🌿</i><span>친환경 세제 사용</span></div>
+      <div class="eco-card"><i>💧</i><span>99% 생분해 약제</span></div>
+      <div class="eco-card"><i>🛡️</i><span>KC 인증 제품</span></div>
+      <div class="eco-card"><i>🤝</i><span>신뢰받는 청소 파트너</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- === REVIEW 작업후기 === -->
+<section id="reviews" class="reviews-section fade-up">
+  <div class="container">
+    <div class="section-title">
+      <h2>메가크리닝 후기</h2>
+    </div>
+    <a href="https://blog.naver.com/mega-cleaning" target="_blank" class="blog-link-box">
+      <img src="https://i.imgur.com/KRTHg2n.png" alt="">
+      블로그에서 더 많은 후기 보기
+    </a>
+    <div class="reviews-grid">
+      <div class="review-item">
+        <img src="https://i.imgur.com/kaH613G.jpeg" alt="">
+        <div class="review-overlay"><span>안양시 사무실 정기청소</span></div>
+      </div>
+      <div class="review-item">
+        <img src="https://i.imgur.com/eL05PX3.png" alt="">
+        <div class="review-overlay"><span>송파구 아파트 입주청소</span></div>
+      </div>
+      <div class="review-item">
+        <img src="https://i.imgur.com/OCDRR4c.png" alt="">
+        <div class="review-overlay"><span>평택시 아파트 이사청소</span></div>
+      </div>
+      <div class="review-item">
+        <img src="https://i.imgur.com/wmGjYT1.jpeg" alt="">
+        <div class="review-overlay"><span>수원시 건물 정기청소</span></div>
+      </div>
+      <div class="review-item">
+        <img src="https://i.imgur.com/4Ums8AH.jpeg" alt="">
+        <div class="review-overlay"><span>동안구 화장실 정기청소</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === INQUIRY 견적 문의 === -->
+<section id="inquiry" class="section fade-up">
+  <div class="container">
+    <div class="section-title">
+      <h2>청소 작업 문의</h2>
+      <p>어떤 청소든 메가크리닝에게 맡기세요. <br>빠르고 친절하게 도와드립니다.</p>
+    </div>
+
+    <!-- ✅ 문의 폼 -->
+    <form class="form" id="inquiry-form">
+      <input class="input" type="text" name="name" placeholder="이름 *" required>
+      <input class="input" type="tel" name="phone" placeholder="연락처 *" required>
+      <input class="input" type="text" name="address" placeholder="주소 * (동/단지명)" style="grid-column:1/-1" required>
+      <select class="input" name="service" required>
+        <option value="">서비스 종류 *</option>
+        <option>입주청소</option>
+        <option>이사청소</option>
+        <option>사무실청소</option>
+        <option>정기청소</option>
+        <option>가전청소</option>
+      </select>
+      <input class="input" type="text" name="size" placeholder="평수">
+      <textarea class="input textarea" name="message" placeholder="문의 내용을 입력하세요"></textarea>
+      <button class="btn-submit" type="submit">신청하기</button>
+    </form>
+
+    <!-- ✅ 중앙 알림창 -->
+    <!-- ✅ 여기 아래 붙여넣기 -->
+<div id="center-alert" style="
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) scale(0.9);
+  background:#ffffff;
+  color:#0f172a;
+  padding:40px 36px;
+  border-radius:24px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.25);
+  text-align:center;
+  font-weight:700;
+  z-index:9999;
+  opacity:0;
+  transition:all 0.5s ease;
+  width:90%;
+  max-width:380px;
+  line-height:1.5;
+">
+  <div style="font-size:24px; margin-bottom:8px;">✅ 문의가 접수되었습니다!</div>
+  <div style="font-size:15px; color:#475569;">담당자가 곧 연락드리겠습니다 😊</div>
+</div>
+
+    <script>
+      const form = document.getElementById("inquiry-form");
+      const alertBox = document.getElementById("center-alert");
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzxpdWkZcgVS_hvKGnKFP6U25LwrDdS1FI4JHg3tNnr9AGmN9sORxF10tSr8kQAeBmU/exec";
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(scriptURL, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            showCenterAlert("✅ 문의가 접수되었습니다!", "담당자가 곧 연락드리겠습니다 😊");
+            form.reset();
+          } else {
+            showCenterAlert("⚠️ 전송 오류", "잠시 후 다시 시도해주세요.");
+          }
+        } catch (error) {
+          console.error(error);
+          showCenterAlert("❌ 네트워크 오류", "인터넷 연결을 확인해주세요.");
+        }
+      });
+
+function showCenterAlert(title, text) {
+    const alertBox = document.getElementById("center-alert");
+    alertBox.innerHTML = `
+      <div style="font-size:24px; margin-bottom:8px;">${title}</div>
+      <div style="font-size:15px; color:#475569;">${text}</div>
+    `;
+
+    alertBox.style.display = "block";
+    setTimeout(() => {
+      alertBox.style.opacity = "1";
+      alertBox.style.transform = "translate(-50%, -50%) scale(1)";
+    }, 10);
+
+    setTimeout(() => {
+      alertBox.style.opacity = "0";
+      alertBox.style.transform = "translate(-50%, -50%) scale(0.9)";
+      setTimeout(() => (alertBox.style.display = "none"), 500);
+    }, 3000);
+  }
+
+      // ✅ 중앙 알림 함수
+      function showCenterAlert(title, text) {
+        alertBox.innerHTML = `
+          <div style="font-size:26px; margin-bottom:10px;">${title}</div>
+          <div style="font-size:16px; color:#475569;">${text}</div>
+        `;
+        alertBox.style.display = "block";
+        setTimeout(() => {
+          alertBox.style.opacity = "1";
+          alertBox.style.transform = "translate(-50%, -50%) scale(1)";
+        }, 10);
+
+        setTimeout(() => {
+          alertBox.style.opacity = "0";
+          alertBox.style.transform = "translate(-50%, -50%) scale(0.9)";
+          setTimeout(() => (alertBox.style.display = "none"), 500);
+        }, 3000);
+      }
+    </script>
+  </div>
+</section>
+
+
+
+<!-- === FOOTER === -->
+<footer class="fade-up">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>메가크리닝</h3>
+      <p>T. 010-4355-9000</p>
+      <p>E. megacleaning@naver.com</p>
+      <p>대표자 : 노수현</p>
+      <p>주소 : 경기도 안양시 만안구 안양로 138번길 25</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://blog.naver.com/mega-cleaning" target="_blank"><img src="https://i.imgur.com/CNO6hSB.png"></a>
+      <a href="https://talk.naver.com/profile/w64inc4" target="_blank"><img src="https://i.imgur.com/7Ku7SQb.png"></a>
+      <a href="https://www.instagram.com/megacleaning_korea" target="_blank"><img src="https://i.imgur.com/Zn3MzvB.png"></a>
+      <a href="https://pf.kakao.com/_Lqvan" target="_blank"><img src="https://i.imgur.com/Yn3RYzH.png"></a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 메가크리닝. All rights reserved.</div>
+</footer>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.2 });
+  fadeEls.forEach(el => obs.observe(el));
+
+  const titles = document.querySelectorAll('.section-title');
+  const titleObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.5 });
+  titles.forEach(el => titleObs.observe(el));
+});
+</script>
+
+<script>
+// 🔽 부드러운 스크롤 이동
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.querySelector(".scroll-down");
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector("#services");
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 50,
+          behavior: "smooth",
+        });
+      }
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function adjustHeroHeight() {
+    const textBox = document.querySelector(".section.headroom .container > div:first-child");
+    const videoBox = document.querySelector(".section.headroom .container > div:last-child");
+
+    if (!textBox || !videoBox) return;
+
+    const textHeight = textBox.offsetHeight;
+
+    if (window.innerWidth > 768) {
+      // PC: 텍스트 높이에 맞춤
+      videoBox.style.height = textHeight + "px";
+      videoBox.style.aspectRatio = "auto";
+    } else {
+      // 모바일: 자동 비율 유지
+      videoBox.style.height = "";
+      videoBox.style.aspectRatio = "16 / 9";
+    }
+  }
+
+  adjustHeroHeight();
+  window.addEventListener("resize", adjustHeroHeight);
+});
+</script>
+
+</body>
+</html>
+
+
+
+
 
 
 
