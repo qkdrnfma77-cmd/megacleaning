@@ -666,6 +666,7 @@
 <!-- ✅ Hero Section (좌우 분할형 유지 + 반응형 완전 보정) -->
 <!-- ✅ HERO 섹션 -->
 <!-- ✅ HERO -->
+<!-- ✅ HERO SECTION -->
 <section class="section headroom">
   <div class="container">
 
@@ -686,7 +687,7 @@
     <div class="video-area">
       <div class="video-wrapper">
         <iframe
-          src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
+          src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q&controls=0&modestbranding=1&playsinline=1"
           title="MegaCleaning Video"
           frameborder="0"
           allow="autoplay; fullscreen"
@@ -697,19 +698,200 @@
 
   </div>
 
-  <!-- ✅ 화살표를 container 밖으로 두고 text-align:center 처리 -->
+  <!-- ✅ 중앙 화살표 -->
   <div class="arrow-center">
-    <a href="#services" class="scroll-down">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-           viewBox="0 0 24 24" stroke="#2BB3FF" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </a>
+    <a href="#services" class="scroll-down"></a>
   </div>
 </section>
 
+<style>
+/* ✅ HERO 전체 스타일 (PC+모바일 완전 통합) */
+.section.headroom {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
+}
+.section.headroom .container {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
 
+/* ✅ 왼쪽 텍스트 */
+.hero-text h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+.hero-text p {
+  font-size: 18px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+.hero-text .highlight {
+  font-size: 36px;
+  color: #2BB3FF;
+  font-weight: 900;
+  margin-top: 10px;
+}
 
+/* ✅ 버튼 그룹 */
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 22px;
+}
+.btn-modern {
+  flex: 0 0 130px;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: 0.25s;
+  padding-top: 1px; /* ✅ 글자 세로 정렬 보정 */
+}
+.btn-call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
+}
+.btn-service {
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #1e293b;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.btn-call:hover, .btn-service:hover {
+  transform: translateY(-2px);
+}
+
+/* ✅ 영상 16:9 유지 */
+.video-area {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 화살표 (리디자인) */
+.arrow-center {
+  text-align: center;
+  margin-top: 36px;
+}
+.scroll-down {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2BB3FF, #00A9FF);
+  box-shadow: 0 5px 14px rgba(0, 153, 255, 0.3);
+  position: relative;
+  cursor: pointer;
+  animation: arrowFloat 2s infinite ease-in-out;
+}
+.scroll-down::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(-45deg);
+  transition: 0.3s ease;
+  margin-top: 4px;
+}
+.scroll-down:hover {
+  background: linear-gradient(135deg, #0099FF, #38BDF8);
+  transform: translateY(-3px);
+}
+.scroll-down:hover::after {
+  transform: rotate(-45deg) translateY(3px);
+}
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ✅ 반응형 (모바일) */
+@media (max-width: 900px) {
+  .section.headroom .container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero-text h1 {
+    font-size: 34px !important;
+  }
+  .hero-text .highlight {
+    font-size: 28px !important;
+  }
+
+  .btn-modern {
+    flex: 1 1 auto;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .video-area {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 18px;
+    overflow: hidden;
+    display: block !important;
+  }
+  .video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+  }
+  .video-wrapper iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block !important;
+  }
+
+  .arrow-center {
+    margin-top: 20px;
+  }
+  .scroll-down {
+    width: 50px;
+    height: 50px;
+  }
+}
+</style>
 
 
 
