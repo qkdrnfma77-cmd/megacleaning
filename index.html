@@ -652,6 +652,99 @@
   background: #e2e8f0;
 }
 
+
+/* ============================= */
+/* ✅ 버튼 크기/정렬 통일 */
+/* ============================= */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 16px;
+  flex-wrap: nowrap;
+}
+
+.btn-modern {
+  flex: 1;
+  text-align: center;
+  padding: 14px 0;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  height: 52px; /* 동일 높이 지정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 📞 지금 전화하기 */
+.btn-call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(43,179,255,0.25);
+}
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
+}
+
+/* ✨ 서비스 보기 */
+.btn-service {
+  background: #fff;
+  border: 2px solid #cfd8e3;
+  color: #1e293b;
+}
+.btn-service:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .hero-buttons {
+    gap: 8px;
+  }
+  .btn-modern {
+    font-size: 14px;
+    padding: 12px 0;
+    height: 48px;
+  }
+}
+
+/* ============================= */
+/* ✅ 스크롤 화살표 (심플 SVG형) */
+/* ============================= */
+.scroll-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 0;
+  width: 40px;
+  height: 40px;
+  animation: arrowBounce 1.6s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* 모바일 화살표 크기 조정 */
+@media (max-width: 768px) {
+  .scroll-down {
+    width: 36px;
+    height: 36px;
+    margin-top: 12px;
+  }
+}
+
+
+
   </style>
 
   <script type="application/ld+json">
@@ -715,9 +808,23 @@
 
       <!-- 🔹 버튼 한 줄 배치 -->
 <div class="hero-buttons">
-  <a href="tel:010-4355-9000" class="btn-call">📞 지금 전화하기</a>
-  <a href="#services" class="btn-service">서비스 보기</a>
+  <a href="tel:010-4355-9000" class="btn-modern btn-call">
+    📞 지금 전화하기
+  </a>
+  <a href="#services" class="btn-modern btn-service">
+    서비스 보기
+  </a>
 </div>
+
+<!-- 🔹 스크롤 유도 화살표 -->
+<a href="#services" class="scroll-down" aria-label="아래로 이동">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+       xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 4V20M12 20L6 14M12 20L18 14"
+          stroke="#2BB3FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
+
 
 
     </div>
@@ -735,10 +842,7 @@
       </iframe>
     </div>
 
-<!-- 👇 Hero 섹션 마지막 부분(</div></section> 직전)에 추가 -->
-<a href="#services" class="scroll-down" aria-label="스크롤 유도 버튼">
-  <span></span>
-</a>
+
 
   </div>
 
@@ -1086,6 +1190,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
