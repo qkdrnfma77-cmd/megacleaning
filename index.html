@@ -468,344 +468,154 @@
 
 
 
-<style>
-/* ============================= */
-/* ✅ Hero 버튼 & 영상 완전 정렬 버전 */
-/* ============================= */
-
-/* ✅ HERO 버튼 크기 축소 & 정렬 보정 */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  max-width: 360px;
-}
-
-/* 버튼 공통 스타일 */
-.btn-modern {
-  flex: 1 1 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 46px; /* 🔹 기존 54px → 살짝 축소 */
-  padding: 0 14px;
-  font-size: 15px; /* 🔹 기존 16px → 약간 축소 */
-  font-weight: 800;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
-
-/* 📞 지금 전화하기 */
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
-}
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
-}
-
-/* 🧾 서비스 보기 */
-.btn-service {
-  background: #fff;
-  border: 2px solid #d1d5db;
-  color: #1e293b;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-}
-.btn-service:hover {
-  background: #f8fafc;
-  transform: translateY(-2px);
-}
-
-/* 영상 균형 조정 */
-.section.headroom iframe {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 20px;
-  object-fit: cover;
-}
-.section.headroom div[style*="aspect-ratio:16/9"] {
-  max-height: 380px; /* 🔹 기존보다 약간 낮춰 왼쪽 텍스트와 균형 */
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
-/* 반응형 (모바일) */
-@media (max-width: 768px) {
-  .hero-buttons {
-    max-width: 94%;
-    gap: 10px;
-  }
-  .btn-modern {
-    height: 50px;
-    font-size: 15px;
-    border-radius: 10px;
-  }
-  .section.headroom div[style*="aspect-ratio:16/9"] {
-    max-height: 240px; /* 모바일 영상 높이 축소 */
-    border-radius: 16px;
-  }
-}
-
-
-</style>
 
 <style>
-/* ✅ HERO VIDEO + 화살표 중앙 고정 (YouTube 버전) */
-.video-area {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  background: #000;
-}
-
-/* 16:9 비율 유지 */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.video-frame {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-}
-.video-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-}
-
-/* ✅ 화살표 - 섹션 전체 기준 정중앙 */
-.scroll-down {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 28px; /* PC에서는 섹션 하단 기준 */
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.96);
-  border: 2px solid #2BB3FF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  animation: arrowFloatY 2s infinite ease-in-out;
-  z-index: 30;
-}
-
-.scroll-down svg {
-  width: 24px;
-  height: 24px;
-  stroke: #2BB3FF;
-}
-
-@keyframes arrowFloatY {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateX(-50%) translateY(-6px);
-    opacity: 1;
-  }
-}
-
-/* ✅ 모바일에서는 영상 아래 정렬 */
-@media (max-width: 900px) {
-  .scroll-down {
-    position: relative;
-    bottom: auto;
-    margin: 18px auto 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* ✅ HERO 레이아웃 */
+/* ✅ HERO 레이아웃 & 폰트 보정 */
 .section.headroom {
-  position: relative;
   padding: 120px 0;
   background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
 }
 .section.headroom .container {
   max-width: 1120px;
-  margin: 0 auto;
+  margin: auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 60px;
 }
 
-/* ✅ 영상 (유튜브 16:9 유지) */
-.video-area {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  background: #000;
+/* ✅ 왼쪽 텍스트 영역 */
+.hero-text h1 {
+  font-size: 48px;        /* 기존 56px → ↓ 축소 */
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: #0f172a;
 }
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
+.hero-text p {
+  font-size: 18px;        /* 기존 20px → ↓ */
+  color: #475569;
+  margin-bottom: 8px;
 }
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: none;
-  object-fit: cover;
+.hero-text .highlight {
+  font-size: 36px;        /* 기존 48px → ↓ */
+  color: #2BB3FF;
+  font-weight: 900;
+  margin-top: 10px;
 }
 
-/* ✅ 화살표: 섹션 기준 중앙 */
-.scroll-down {
-  position: absolute;
-  bottom: 60px; /* 🔹 영상보다 위쪽으로 올림 */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.96);
-  border: 2px solid #2BB3FF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  animation: arrowFloatY 2s infinite ease-in-out;
-  z-index: 20;
-}
-.scroll-down svg {
-  width: 24px;
-  height: 24px;
-  stroke: #2BB3FF;
-}
-
-@keyframes arrowFloatY {
-  0%, 100% { transform: translate(-50%, 0); opacity: 0.8; }
-  50% { transform: translate(-50%, -6px); opacity: 1; }
-}
-
-/* ✅ 모바일 반응형 */
-@media (max-width: 900px) {
-  .section.headroom .container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-  .scroll-down {
-    position: relative;
-    bottom: auto;
-    margin: 20px auto 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* ✅ HERO 버튼 크기 미세 조정 (가로폭 축소) */
+/* ✅ 버튼 크기 축소 */
 .hero-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  max-width: 320px; /* 🔹 기존 360px → 폭 살짝 축소 */
+  gap: 12px;
+  margin-top: 22px;
 }
-
-/* 버튼 공통 스타일 */
 .btn-modern {
-  flex: 1 1 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 46px;
-  padding: 0 10px; /* 🔹 좌우 여백 살짝 축소 */
-  font-size: 15px;
+  flex: 0 0 130px;       /* 기존 44% → 고정 너비 */
+  height: 40px;          /* 기존 44px → ↓ */
+  font-size: 13.5px;     /* 글자 축소 */
+  border-radius: 8px;
   font-weight: 800;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  transition: all 0.25s ease;
-  box-sizing: border-box;
+  transition: 0.25s;
   white-space: nowrap;
 }
-
-/* 📞 지금 전화하기 */
 .btn-call {
   background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
   color: #fff;
   border: none;
   box-shadow: 0 3px 10px rgba(43,179,255,0.25);
 }
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
-}
-
-/* 🧾 서비스 보기 */
 .btn-service {
   background: #fff;
   border: 2px solid #d1d5db;
   color: #1e293b;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-.btn-service:hover {
-  background: #f8fafc;
+.btn-call:hover, .btn-service:hover {
   transform: translateY(-2px);
 }
 
-/* ✅ 영상 16:9 비율 완벽 고정 */
+/* ✅ 유튜브 영상 완전 16:9 비율 고정 */
+.video-area {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
 .video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* ✅ 고정 비율 */
+  aspect-ratio: 16 / 9 !important; /* ✅ 16:9 고정 */
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  background: #000;
 }
 .video-wrapper iframe {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
+  object-fit: cover; /* ✅ 영상이 정중앙에 꽉 차게 */
 }
 
-/* ✅ 모바일 */
+/* ✅ 중앙 화살표 정렬 */
+.arrow-center {
+  text-align: center;
+  margin-top: 36px;
+}
+.scroll-down {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.96);
+  border: 2px solid #2BB3FF;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  animation: arrowFloat 2s infinite ease-in-out;
+}
+.scroll-down svg {
+  width: 26px;
+  height: 26px;
+  stroke: #2BB3FF;
+}
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ✅ 반응형 (모바일) */
 @media (max-width: 900px) {
-  .hero-buttons {
+  .section.headroom .container {
+    display: flex;
     flex-direction: column;
-    max-width: 90%;
+    text-align: center;
+    gap: 28px;
+  }
+  .hero-text h1 {
+    font-size: 34px !important;
+  }
+  .hero-text .highlight {
+    font-size: 28px !important;
   }
   .btn-modern {
-    height: 44px;
+    flex: 0 0 46%;
+    height: 42px;
     font-size: 14px;
   }
+  .arrow-center {
+    margin-top: 24px;
+  }
 }
+
 
 
   </style>
@@ -859,26 +669,27 @@
 <section class="section headroom">
   <div class="container">
 
-    <!-- 왼쪽 -->
+    <!-- 왼쪽 텍스트 -->
     <div class="hero-text">
       <h1>늘 곁에서, 늘 깨끗하게</h1>
       <p>"청소 그 이상의 가치, 고객 곁에서 함께하는"</p>
       <p class="highlight">메가크리닝</p>
 
+      <!-- 버튼 두 개 -->
       <div class="hero-buttons">
         <a href="tel:010-4355-9000" class="btn-modern btn-call">📞 지금 전화하기</a>
         <a href="#services" class="btn-modern btn-service">서비스 보기</a>
       </div>
     </div>
 
-    <!-- 오른쪽 유튜브 영상 -->
+    <!-- 오른쪽 유튜브 -->
     <div class="video-area">
       <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
-          title="MegaCleaning 영상"
+          title="MegaCleaning Video"
           frameborder="0"
-          allow="autoplay; encrypted-media; fullscreen"
+          allow="autoplay; fullscreen"
           allowfullscreen>
         </iframe>
       </div>
@@ -886,506 +697,19 @@
 
   </div>
 
-  <!-- 중앙 화살표 -->
-  <a href="#services" class="scroll-down">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-         viewBox="0 0 24 24" stroke="#2BB3FF" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-    </svg>
-  </a>
+  <!-- ✅ 화살표를 container 밖으로 두고 text-align:center 처리 -->
+  <div class="arrow-center">
+    <a href="#services" class="scroll-down">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+           viewBox="0 0 24 24" stroke="#2BB3FF" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </a>
+  </div>
 </section>
 
 
-<style>
-@keyframes arrowFloat {
-  0%,100% { transform: translate(-50%, 0); opacity: 0.7; }
-  50% { transform: translate(-50%, -5px); opacity: 1; }
-}
 
-/* ✅ 반응형 (모바일에서 영상이 아래로 이동) */
-@media (max-width: 900px) {
-  .section.headroom .container {
-    grid-template-columns: 1fr !important;
-    text-align: center;
-    gap: 40px !important;
-  }
-  .section.headroom h1 {
-    font-size: 34px !important;
-    line-height: 1.35 !important;
-  }
-  .section.headroom p {
-    font-size: 16px !important;
-  }
-  .section.headroom p:last-of-type {
-    font-size: 26px !important;
-    color: #2BB3FF;
-  }
-  .video-area {
-    max-width: 95%;
-    margin: 0 auto;
-  }
-  .scroll-down {
-    bottom: -20px !important;
-    width: 42px !important;
-    height: 42px !important;
-  }
-}
-
-/* ✅ 수정된 HERO 관련 CSS (영상 비율 + 화살표 고정 완벽 버전) */
-
-/* 전체 배경과 그리드 */
-.section.headroom {
-  padding: 120px 0;
-  background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
-}
-
-.section.headroom .container {
-  max-width: 1120px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 60px;
-}
-
-/* 텍스트 */
-.section.headroom h1 {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.2;
-}
-.section.headroom p {
-  font-size: 20px;
-  color: var(--sub);
-}
-.section.headroom p:last-of-type {
-  font-size: 46px;
-  font-weight: 900;
-  color: var(--blue);
-}
-
-/* 버튼 */
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 24px;
-}
-
-/* ✅ 영상 영역 */
-.video-area {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  background: #000;
-}
-.video-wrapper {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  position: relative;
-}
-.video-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ✅ 화살표 (transform 충돌 제거) */
-.scroll-down {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.96);
-  border: 2px solid var(--blue);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  animation: arrowFloatY 2s infinite ease-in-out;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.scroll-down svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--blue);
-}
-
-.scroll-down:hover {
-  background: linear-gradient(145deg, #E6F7FF, #FFFFFF);
-  box-shadow: 0 6px 14px rgba(43, 179, 255, 0.3);
-}
-
-@keyframes arrowFloatY {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateX(-50%) translateY(-6px);
-    opacity: 1;
-  }
-}
-
-/* ✅ 모바일 */
-@media (max-width: 900px) {
-  .section.headroom .container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-  .section.headroom h1 {
-    font-size: 36px;
-  }
-  .section.headroom p {
-    font-size: 16px;
-  }
-  .section.headroom p:last-of-type {
-    font-size: 30px;
-  }
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .scroll-down {
-    width: 40px;
-    height: 40px;
-    bottom: 12px;
-  }
-}
-
-/* ✅ 영상 (PC 16:9 완벽 고정) */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  background: #000;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-}
-
-/* ✅ 버튼 크기 */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  flex-wrap: nowrap; /* 🔹 줄바꿈 방지 */
-}
-.btn-modern {
-  flex: 0 0 145px; /* 🔹 고정폭 버튼 */
-  height: 44px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 14.5px;
-  font-weight: 800;
-  border-radius: 10px;
-  padding: 0 10px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
-}
-.btn-service {
-  background: #fff;
-  border: 2px solid #d1d5db;
-  color: #1e293b;
-}
-.btn-call:hover, .btn-service:hover {
-  transform: translateY(-2px);
-}
-
-/* ✅ 모바일 반응형 */
-@media (max-width: 900px) {
-  .section.headroom .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 24px;
-  }
-
-  .video-wrapper {
-    width: 100%;
-    max-width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 14px;
-    margin: 0 auto;
-  }
-
-  .hero-buttons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 16px;
-  }
-
-  .btn-modern {
-    flex: 0 0 42%;
-    height: 42px;
-    font-size: 13.5px;
-  }
-
-  .scroll-down {
-    position: relative;
-    bottom: auto;
-    margin: 18px auto 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.section.headroom {
-  position: relative;
-  padding: 120px 0;
-  background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
-}
-.section.headroom .container {
-  max-width: 1120px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 60px;
-}
-
-/* ✅ 유튜브 영상 */
-.video-area {
-  border-radius: 20px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: none;
-  object-fit: cover;
-}
-
-/* ✅ 버튼 정돈 */
-.hero-buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  margin-top: 22px;
-}
-.btn-modern {
-  flex: 0 0 150px;
-  height: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 15px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: 0.3s;
-}
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
-}
-.btn-service {
-  background: #fff;
-  border: 2px solid #d1d5db;
-  color: #1e293b;
-}
-.btn-call:hover, .btn-service:hover {
-  transform: translateY(-2px);
-}
-
-/* ✅ 중앙 화살표 */
-.scroll-down {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.96);
-  border: 2px solid #2BB3FF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  animation: arrowFloat 2s infinite ease-in-out;
-  z-index: 20;
-}
-.scroll-down svg {
-  width: 24px;
-  height: 24px;
-  stroke: #2BB3FF;
-}
-@keyframes arrowFloat {
-  0%,100% { transform: translate(-50%, 0); opacity: 0.8; }
-  50% { transform: translate(-50%, -6px); opacity: 1; }
-}
-
-/* ✅ 모바일 반응형 */
-@media (max-width: 900px) {
-  .section.headroom .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 28px;
-  }
-
-  .video-area {
-    width: 100%;
-    border-radius: 14px;
-    order: 2; /* 영상이 아래쪽으로 */
-  }
-
-  .hero-buttons {
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 8px;
-  }
-
-  .btn-modern {
-    flex: 0 0 42%;
-    height: 42px;
-    font-size: 14px;
-  }
-
-  .scroll-down {
-    position: relative;
-    bottom: auto;
-    margin: 24px auto 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* ✅ 버튼 디자인 균형 */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  flex-wrap: nowrap;
-}
-
-.btn-modern {
-  flex: 0 0 46%;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  font-size: 14.5px;
-  font-weight: 800;
-  border-radius: 10px;
-  padding: 0 10px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-  box-sizing: border-box;
-}
-
-/* ✅ 전화하기 버튼 */
-.btn-call {
-  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
-}
-
-/* ✅ 서비스 보기 버튼 (윤곽 정돈) */
-.btn-service {
-  background: #fff;
-  border: 2px solid #d1d5db;
-  color: #1e293b;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.btn-call:hover, .btn-service:hover {
-  transform: translateY(-2px);
-}
-
-/* ✅ 중앙 화살표 완전 정렬 */
-.scroll-down {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 24px auto 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.96);
-  border: 2px solid #2BB3FF;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  animation: arrowFloat 2s infinite ease-in-out;
-  z-index: 20;
-}
-
-.scroll-down svg {
-  width: 26px;
-  height: 26px;
-  stroke: #2BB3FF;
-}
-
-@keyframes arrowFloat {
-  0%, 100% { transform: translateY(0); opacity: 0.8; }
-  50% { transform: translateY(-6px); opacity: 1; }
-}
-
-/* ✅ 모바일 반응형 */
-@media (max-width: 900px) {
-  .hero-buttons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
-  }
-  .btn-modern {
-    flex: 0 0 44%;
-    height: 42px;
-    font-size: 14px;
-  }
-  .scroll-down {
-    margin-top: 26px;
-  }
-}
-
-
-</style>
 
 
 
