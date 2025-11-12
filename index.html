@@ -833,6 +833,119 @@
   }
 }
 
+<style>
+/* ============================= */
+/* ✅ 버튼 스타일 정밀 보정 */
+/* ============================= */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 18px auto 16px;
+  max-width: 420px;
+}
+
+.hero-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 52px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+/* 📞 지금 전화하기 */
+.hero-btn.call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(43,179,255,0.25);
+  border: none;
+}
+.hero-btn.call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43,179,255,0.35);
+}
+
+/* 🧾 서비스 보기 */
+.hero-btn.service {
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #1e293b;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+}
+.hero-btn.service:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+/* 모바일 크기 조정 */
+@media (max-width: 768px) {
+  .hero-buttons {
+    max-width: 95%;
+    gap: 8px;
+  }
+  .hero-btn {
+    height: 48px;
+    font-size: 14px;
+  }
+}
+
+/* ============================= */
+/* ✅ 스크롤 유도 화살표 (영상 아래 중앙) */
+/* ============================= */
+.scroll-down {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px auto 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #2BB3FF;
+  animation: pulse 1.8s infinite;
+  cursor: pointer;
+}
+
+.scroll-down .arrow {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #2BB3FF;
+  border-bottom: 2px solid #2BB3FF;
+  transform: rotate(-45deg);
+  animation: arrowMove 1.8s infinite;
+}
+
+/* 🔹 애니메이션 효과 */
+@keyframes arrowMove {
+  0%, 100% { transform: rotate(-45deg) translate(0, 0); opacity: 0.6; }
+  50% { transform: rotate(-45deg) translate(0, 4px); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43,179,255,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(43,179,255,0.05); }
+}
+
+/* 모바일 보정 */
+@media (max-width: 768px) {
+  .scroll-down {
+    width: 28px;
+    height: 28px;
+    margin-top: 10px;
+  }
+}
+</style>
+
+
   </style>
 
   <script type="application/ld+json">
@@ -1278,6 +1391,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
