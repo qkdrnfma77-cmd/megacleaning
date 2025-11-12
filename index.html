@@ -838,6 +838,134 @@
     border-width: 2px !important;
   }
 }
+/* ============================== */
+/* ✅ 버튼 (폭 축소 + 높이 동일 + 정렬 보정) */
+/* ============================== */
+.hero-buttons {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin-top: 22px !important;
+}
+
+.btn-modern {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 46px !important;               /* ✅ 높이 유지 */
+  padding: 0 18px !important;            /* ✅ 좌우 여백 축소 (기존 26px → 18px) */
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+  min-width: 140px !important;           /* ✅ 가로 폭 기본값 줄임 (기존 160~180 → 140px) */
+}
+
+.btn-call {
+  background: linear-gradient(135deg, #37C8FF 0%, #0096FF 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43,179,255,0.25),
+              inset 0 0 5px rgba(255,255,255,0.25) !important;
+}
+
+.btn-service {
+  background: #fff !important;
+  border: 2px solid #D4D8DF !important;
+  color: #1e293b !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05) !important;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 14px rgba(0,153,255,0.25) !important;
+}
+
+/* ✅ 모바일 버전 (좌우폭 비율 조정) */
+@media (max-width: 900px) {
+  .hero-buttons {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .btn-modern {
+    flex: 0 0 auto !important;
+    height: 44px !important;
+    font-size: 15px !important;
+    min-width: 46% !important;           /* ✅ 두 버튼 비율 맞추기 */
+    padding: 0 14px !important;
+  }
+}
+
+
+/* ============================== */
+/* ✅ 하이엔드 화살표 (빛반사 + 펄스 + 플로팅) */
+/* ============================== */
+.arrow-center {
+  text-align: center !important;
+  margin-top: 40px !important;
+}
+
+.scroll-down {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 30% 30%, #46C9FF, #007BFF) !important;
+  box-shadow:
+    0 0 10px rgba(0,153,255,0.4),
+    inset 0 0 6px rgba(255,255,255,0.25) !important;
+  position: relative !important;
+  animation: arrowFloat 3s infinite ease-in-out,
+             arrowGlow 3s infinite ease-in-out !important;
+  transition: all 0.3s ease !important;
+}
+.scroll-down::after {
+  content: "" !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-left: 2px solid #fff !important;
+  border-bottom: 2px solid #fff !important;
+  transform: rotate(-45deg) !important;
+}
+.scroll-down:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow:
+    0 0 20px rgba(43,179,255,0.8),
+    0 0 30px rgba(0,153,255,0.5),
+    inset 0 0 8px rgba(255,255,255,0.4) !important;
+}
+
+/* ✅ 애니메이션 정의 */
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(-7px); opacity: 1; }
+}
+@keyframes arrowGlow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(43,179,255,0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(43,179,255,0.8)); }
+}
+
+/* ✅ 모바일용 */
+@media (max-width: 900px) {
+  .scroll-down {
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .scroll-down::after {
+    width: 7px !important;
+    height: 7px !important;
+  }
+}
+
+
+
 
 </style>
 
@@ -905,7 +1033,7 @@
     <!-- 오른쪽 영상 -->
     <div class="hero-video">
       <iframe
-        src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q&controls=0&modestbranding=1&playsinline=1"
+        src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
         title="MegaCleaning Video"
         allow="autoplay; fullscreen"
         frameborder="0">
