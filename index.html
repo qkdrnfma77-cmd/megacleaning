@@ -667,6 +667,7 @@
 <!-- ✅ HERO 섹션 -->
 <!-- ✅ HERO -->
 <!-- ✅ HERO SECTION -->
+<!-- ✅ HERO SECTION -->
 <section class="section headroom">
   <div class="container">
 
@@ -705,7 +706,7 @@
 </section>
 
 <style>
-/* ✅ HERO 전체 스타일 (PC+모바일 완전 통합) */
+/* ✅ HERO 섹션 */
 .section.headroom {
   padding: 120px 0;
   background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
@@ -719,7 +720,7 @@
   gap: 60px;
 }
 
-/* ✅ 왼쪽 텍스트 */
+/* ✅ 텍스트 */
 .hero-text h1 {
   font-size: 48px;
   font-weight: 900;
@@ -739,27 +740,26 @@
   margin-top: 10px;
 }
 
-/* ✅ 버튼 그룹 */
+/* ✅ 버튼 */
 .hero-buttons {
   display: flex;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
   gap: 12px;
   margin-top: 22px;
 }
 .btn-modern {
-  flex: 0 0 130px;
-  height: 42px;
+  min-width: 135px;
+  height: 44px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 800;
-  font-size: 14px;
-  text-decoration: none;
-  white-space: nowrap;
+  font-size: 14.5px;
+  line-height: 1;
+  padding: 0;
   transition: 0.25s;
-  padding-top: 1px; /* ✅ 글자 세로 정렬 보정 */
 }
 .btn-call {
   background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
@@ -777,10 +777,10 @@
   transform: translateY(-2px);
 }
 
-/* ✅ 영상 16:9 유지 */
+/* ✅ 영상 */
 .video-area {
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   background: #000;
@@ -788,8 +788,8 @@
 .video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  padding-top: 56.25%; /* 16:9 비율 */
+  border-radius: 18px;
   overflow: hidden;
 }
 .video-wrapper iframe {
@@ -799,50 +799,43 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: none;
   display: block;
 }
 
-/* ✅ 화살표 (리디자인) */
+/* ✅ 화살표 (새로운 디자인) */
 .arrow-center {
   text-align: center;
-  margin-top: 36px;
+  margin-top: 26px;
 }
 .scroll-down {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 56px;
-  height: 56px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2BB3FF, #00A9FF);
-  box-shadow: 0 5px 14px rgba(0, 153, 255, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 153, 255, 0.25);
   position: relative;
-  cursor: pointer;
   animation: arrowFloat 2s infinite ease-in-out;
+  cursor: pointer;
 }
 .scroll-down::after {
   content: "";
-  width: 15px;
-  height: 15px;
-  border-left: 3px solid white;
-  border-bottom: 3px solid white;
+  width: 10px;
+  height: 10px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
   transform: rotate(-45deg);
-  transition: 0.3s ease;
-  margin-top: 4px;
-}
-.scroll-down:hover {
-  background: linear-gradient(135deg, #0099FF, #38BDF8);
-  transform: translateY(-3px);
-}
-.scroll-down:hover::after {
-  transform: rotate(-45deg) translateY(3px);
+  margin-top: 3px;
 }
 @keyframes arrowFloat {
-  0%, 100% { transform: translateY(0); opacity: 0.9; }
-  50% { transform: translateY(-6px); opacity: 1; }
+  0%,100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(-5px); opacity: 1; }
 }
 
-/* ✅ 반응형 (모바일) */
+/* ✅ 모바일 최적화 */
 @media (max-width: 900px) {
   .section.headroom .container {
     display: flex;
@@ -850,45 +843,36 @@
     text-align: center;
     gap: 28px;
   }
-
   .hero-text h1 {
     font-size: 34px !important;
   }
   .hero-text .highlight {
     font-size: 28px !important;
   }
-
   .btn-modern {
     flex: 1 1 auto;
     height: 44px;
     font-size: 15px;
   }
-
+  .hero-buttons {
+    justify-content: center;
+  }
   .video-area {
     width: 100%;
-    max-width: 480px;
-    border-radius: 18px;
-    overflow: hidden;
-    display: block !important;
+    max-width: 440px;
+    border-radius: 16px;
   }
-  .video-wrapper {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 18px;
-  }
-  .video-wrapper iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    display: block !important;
-  }
-
   .arrow-center {
-    margin-top: 20px;
+    margin-top: 18px;
   }
   .scroll-down {
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
+  }
+  .scroll-down::after {
+    width: 8px;
+    height: 8px;
+    border-width: 2px;
   }
 }
 </style>
@@ -1263,6 +1247,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
+
+
+
 
 
 
