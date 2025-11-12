@@ -839,13 +839,13 @@
   }
 }
 /* ============================== */
-/* ✅ 버튼 (폭 축소 + 높이 동일 + 정렬 보정) */
+/* ✅ 버튼 폭·높이 완전 정렬 (고정 비율 & 균형 유지) */
 /* ============================== */
 .hero-buttons {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   margin-top: 22px !important;
 }
 
@@ -853,8 +853,8 @@
   display: inline-flex !important;
   justify-content: center !important;
   align-items: center !important;
-  height: 46px !important;               /* ✅ 높이 유지 */
-  padding: 0 18px !important;            /* ✅ 좌우 여백 축소 (기존 26px → 18px) */
+  height: 44px !important;              /* ✅ 균형 높이 (고정) */
+  padding: 0 16px !important;           /* ✅ 여백 줄임 */
   border-radius: 10px !important;
   font-weight: 800 !important;
   font-size: 15px !important;
@@ -862,14 +862,14 @@
   text-decoration: none !important;
   transition: all 0.25s ease !important;
   box-sizing: border-box !important;
-  min-width: 140px !important;           /* ✅ 가로 폭 기본값 줄임 (기존 160~180 → 140px) */
+  width: 145px !important;              /* ✅ 고정 폭 */
 }
 
 .btn-call {
   background: linear-gradient(135deg, #37C8FF 0%, #0096FF 100%) !important;
   color: #fff !important;
   border: none !important;
-  box-shadow: 0 2px 8px rgba(43,179,255,0.25),
+  box-shadow: 0 2px 6px rgba(43,179,255,0.25),
               inset 0 0 5px rgba(255,255,255,0.25) !important;
 }
 
@@ -877,27 +877,25 @@
   background: #fff !important;
   border: 2px solid #D4D8DF !important;
   color: #1e293b !important;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important;
 }
 
 .btn-modern:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 14px rgba(0,153,255,0.25) !important;
+  box-shadow: 0 6px 12px rgba(0,153,255,0.25) !important;
 }
 
-/* ✅ 모바일 버전 (좌우폭 비율 조정) */
+/* ✅ 모바일 버전 */
 @media (max-width: 900px) {
   .hero-buttons {
     flex-direction: row !important;
     justify-content: center !important;
-    gap: 8px !important;
   }
   .btn-modern {
-    flex: 0 0 auto !important;
-    height: 44px !important;
+    width: 42% !important;              /* ✅ 자동 비율로 정렬 */
+    height: 42px !important;            /* ✅ 동일 높이 유지 */
     font-size: 15px !important;
-    min-width: 46% !important;           /* ✅ 두 버튼 비율 맞추기 */
-    padding: 0 14px !important;
+    padding: 0 12px !important;
   }
 }
 
