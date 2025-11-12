@@ -839,66 +839,65 @@
   }
 }
 /* ============================== */
-/* ✅ 버튼 폭·높이 완전 정렬 (고정 비율 & 균형 유지) */
+/* ✅ 버튼 균형 완성형 (폭 줄이고 높이 동일 유지) */
 /* ============================== */
 .hero-buttons {
   display: flex !important;
-  align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
+  align-items: stretch !important;
+  gap: 10px !important;
   margin-top: 22px !important;
 }
 
 .btn-modern {
-  display: inline-flex !important;
-  justify-content: center !important;
+  display: flex !important;
   align-items: center !important;
-  height: 44px !important;              /* ✅ 균형 높이 (고정) */
-  padding: 0 16px !important;           /* ✅ 여백 줄임 */
+  justify-content: center !important;
+  height: 46px !important;          /* ✅ 높이 고정 */
+  line-height: 46px !important;     /* ✅ 수직 중앙 */
+  padding: 0 14px !important;
+  width: 130px !important;          /* ✅ 폭 축소 (기존 145 → 130) */
   border-radius: 10px !important;
   font-weight: 800 !important;
   font-size: 15px !important;
-  line-height: 1 !important;
+  box-sizing: border-box !important;
   text-decoration: none !important;
   transition: all 0.25s ease !important;
-  box-sizing: border-box !important;
-  width: 145px !important;              /* ✅ 고정 폭 */
 }
 
 .btn-call {
-  background: linear-gradient(135deg, #37C8FF 0%, #0096FF 100%) !important;
+  background: linear-gradient(135deg, #3AC9FF, #0099FF) !important;
   color: #fff !important;
   border: none !important;
-  box-shadow: 0 2px 6px rgba(43,179,255,0.25),
-              inset 0 0 5px rgba(255,255,255,0.25) !important;
+  box-shadow: 0 3px 10px rgba(43,179,255,0.25) !important;
 }
 
 .btn-service {
   background: #fff !important;
-  border: 2px solid #D4D8DF !important;
+  border: 2px solid #D5DAE0 !important;
   color: #1e293b !important;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
 }
 
 .btn-modern:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 12px rgba(0,153,255,0.25) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,153,255,0.25);
 }
 
-/* ✅ 모바일 버전 */
+/* ✅ 모바일 */
 @media (max-width: 900px) {
   .hero-buttons {
-    flex-direction: row !important;
-    justify-content: center !important;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
   }
   .btn-modern {
-    width: 42% !important;              /* ✅ 자동 비율로 정렬 */
-    height: 42px !important;            /* ✅ 동일 높이 유지 */
+    width: 40% !important;           /* ✅ 비율로 축소 */
+    height: 44px !important;
+    line-height: 44px !important;
     font-size: 15px !important;
-    padding: 0 12px !important;
   }
 }
-
 
 /* ============================== */
 /* ✅ 하이엔드 화살표 (빛반사 + 펄스 + 플로팅) */
@@ -1023,7 +1022,7 @@
       <p class="highlight">메가크리닝</p>
 
       <div class="hero-buttons">
-        <a href="tel:010-4355-9000" class="btn-modern btn-call">지금 전화하기</a>
+        <a href="tel:010-4355-9000" class="btn-modern btn-call">📞 지금 전화하기</a>
         <a href="#services" class="btn-modern btn-service">서비스 보기</a>
       </div>
     </div>
@@ -1031,11 +1030,12 @@
     <!-- 오른쪽 영상 -->
     <div class="hero-video">
       <iframe
-        src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
-        title="MegaCleaning Video"
-        allow="autoplay; fullscreen"
-        frameborder="0">
-      </iframe>
+  src="https://www.youtube.com/embed/PvK3AVYMd3Q?autoplay=1&mute=1&loop=1&playlist=PvK3AVYMd3Q"
+  title="MegaCleaning Video"
+  frameborder="0"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen>
+</iframe>
     </div>
 
   </div>
