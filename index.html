@@ -667,6 +667,7 @@
 <!-- ✅ HERO 섹션 -->
 <!-- ✅ HERO -->
 <!-- ✅ HERO SECTION -->
+<!-- ✅ HERO SECTION (Final Stable) -->
 <section class="section headroom">
   <div class="hero-container">
 
@@ -709,10 +710,10 @@
   padding: 120px 0 100px;
 }
 .hero-container {
-  max-width: 1150px;
+  max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 60px;
   padding: 0 20px;
@@ -741,13 +742,13 @@
 }
 
 /* ============================== */
-/* ✅ 버튼 균형 수정 */
+/* ✅ 버튼 정렬 완벽 수정 */
 /* ============================== */
 .hero-buttons {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 24px;
 }
 .btn-modern {
   display: inline-flex;
@@ -780,12 +781,12 @@
 }
 
 /* ============================== */
-/* ✅ 영상 (모바일 포함 완전 호환) */
+/* ✅ 영상 비율 고정 + 크기 보정 */
 /* ============================== */
 .hero-video {
   position: relative;
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -795,7 +796,7 @@
 .hero-video::before {
   content: "";
   display: block;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%; /* 16:9 비율 유지 */
 }
 .hero-video iframe {
   position: absolute;
@@ -803,13 +804,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border: none;
-  display: block;
+  object-fit: cover;
 }
 
 /* ============================== */
-/* ✅ 화살표 디자인 */
+/* ✅ 화살표 (작고 중앙 고정) */
 /* ============================== */
 .arrow-center {
   text-align: center;
@@ -819,21 +819,20 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2BB3FF, #00A9FF);
   box-shadow: 0 3px 10px rgba(0,153,255,0.25);
   position: relative;
   animation: arrowFloat 2s infinite ease-in-out;
-  cursor: pointer;
 }
 .scroll-down::after {
   content: "";
-  width: 8px;
-  height: 8px;
-  border-left: 2.5px solid #fff;
-  border-bottom: 2.5px solid #fff;
+  width: 7px;
+  height: 7px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   transform: rotate(-45deg);
   margin-top: 1px;
 }
@@ -843,14 +842,14 @@
 }
 
 /* ============================== */
-/* ✅ 모바일 반응형 */
+/* ✅ 모바일 */
 /* ============================== */
 @media (max-width: 900px) {
   .hero-container {
     display: flex;
     flex-direction: column;
-    gap: 28px;
     text-align: center;
+    gap: 28px;
   }
   .hero-text h1 {
     font-size: 34px;
@@ -867,13 +866,12 @@
     font-size: 15px;
   }
   .hero-video {
+    width: 90%;
     max-width: 500px;
-    width: 100%;
-    border-radius: 16px;
   }
   .scroll-down {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
   .scroll-down::after {
     width: 6px;
@@ -882,6 +880,7 @@
   }
 }
 </style>
+
 
 
 
