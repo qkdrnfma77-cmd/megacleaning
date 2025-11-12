@@ -1059,6 +1059,104 @@
   }
 }
 
+/* ✅ 영상 (PC 16:9 완벽 고정) */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+/* ✅ 버튼 크기 */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: nowrap; /* 🔹 줄바꿈 방지 */
+}
+.btn-modern {
+  flex: 0 0 145px; /* 🔹 고정폭 버튼 */
+  height: 44px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.btn-call {
+  background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 10px rgba(43,179,255,0.25);
+}
+.btn-service {
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #1e293b;
+}
+.btn-call:hover, .btn-service:hover {
+  transform: translateY(-2px);
+}
+
+/* ✅ 모바일 반응형 */
+@media (max-width: 900px) {
+  .section.headroom .container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    margin: 0 auto;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .btn-modern {
+    flex: 0 0 42%;
+    height: 42px;
+    font-size: 13.5px;
+  }
+
+  .scroll-down {
+    position: relative;
+    bottom: auto;
+    margin: 18px auto 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 
 </style>
 
@@ -1432,7 +1530,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
 
 
 
