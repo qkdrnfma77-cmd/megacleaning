@@ -706,7 +706,7 @@
 </section>
 
 <style>
-/* ✅ HERO 섹션 */
+/* ✅ HERO 섹션 공통 */
 .section.headroom {
   padding: 120px 0;
   background: linear-gradient(180deg, #F5FAFF, #FFFFFF);
@@ -740,7 +740,7 @@
   margin-top: 10px;
 }
 
-/* ✅ 버튼 */
+/* ✅ 버튼 수정 - 정렬 문제 해결 */
 .hero-buttons {
   display: flex;
   justify-content: flex-start;
@@ -750,16 +750,17 @@
 }
 .btn-modern {
   min-width: 135px;
-  height: 44px;
+  height: 46px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   font-weight: 800;
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 1;
   padding: 0;
   transition: 0.25s;
+  vertical-align: middle; /* ✅ 글자 세로 정렬 */
 }
 .btn-call {
   background: linear-gradient(135deg, #3CCBFF 0%, #0099FF 100%);
@@ -788,7 +789,7 @@
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 비율 */
+  padding-top: 56.25%; /* 16:9 비율 유지 */
   border-radius: 18px;
   overflow: hidden;
 }
@@ -803,7 +804,7 @@
   display: block;
 }
 
-/* ✅ 화살표 (새로운 디자인) */
+/* ✅ 화살표 (PC기준) */
 .arrow-center {
   text-align: center;
   margin-top: 26px;
@@ -812,8 +813,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2BB3FF, #00A9FF);
   box-shadow: 0 3px 10px rgba(0, 153, 255, 0.25);
@@ -835,7 +836,7 @@
   50% { transform: translateY(-5px); opacity: 1; }
 }
 
-/* ✅ 모바일 최적화 */
+/* ✅ 모바일 최적화 (화살표 작게 + 버튼 정렬 유지) */
 @media (max-width: 900px) {
   .section.headroom .container {
     display: flex;
@@ -849,32 +850,30 @@
   .hero-text .highlight {
     font-size: 28px !important;
   }
+  .hero-buttons {
+    justify-content: center;
+  }
   .btn-modern {
     flex: 1 1 auto;
     height: 44px;
     font-size: 15px;
   }
-  .hero-buttons {
-    justify-content: center;
-  }
-  .video-area {
-    width: 100%;
-    max-width: 440px;
-    border-radius: 16px;
-  }
+
+  /* ✅ 모바일용 화살표 (작고 간결하게) */
   .arrow-center {
     margin-top: 18px;
   }
   .scroll-down {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
   .scroll-down::after {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-width: 2px;
   }
 }
+
 </style>
 
 
@@ -1247,6 +1246,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
+
+
+
 
 
 
