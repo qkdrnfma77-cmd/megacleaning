@@ -1,8 +1,16 @@
 {
   "routes": [
     {
-      "src": "/(.*)",
-      "headers": { "Location": "https://www.megacleaning.co.kr/$1" },
+      "src": "^/(.*)$",
+      "has": [
+        {
+          "type": "host",
+          "value": "megacleaning.co.kr"
+        }
+      ],
+      "headers": {
+        "Location": "https://www.megacleaning.co.kr/$1"
+      },
       "status": 301
     }
   ]
