@@ -1,9 +1,9 @@
 {
-  "redirects": [
+  "routes": [
     {
-      "source": "/:path*",
-      "destination": "https://www.megacleaning.co.kr/:path*",
-      "permanent": true
+      "src": "/(.*)",
+      "headers": { "Location": "https://www.megacleaning.co.kr/$1" },
+      "status": 301
     }
   ]
 }
