@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>메가크리닝 최신 소식</title>
+    <link>https://www.megacleaning.co.kr/</link>
+    <description>메가크리닝의 서비스 소개 및 새로운 정보</description>
+    <language>ko</language>
+    
+    <item>
+      <title>메가크리닝 홈페이지 오픈</title>
+      <link>https://www.megacleaning.co.kr/</link>
+      <description>메가크리닝 홈페이지가 정식 오픈되었습니다.</description>
+      <pubDate>Mon, 10 Nov 2025 09:00:00 +0900</pubDate>
+    </item>
+
+    <item>
+      <title>회사 소개</title>
+      <link>https://www.megacleaning.co.kr/about.html</link>
+      <description>메가크리닝의 기업 철학과 서비스 가치 소개</description>
+      <pubDate>Mon, 10 Nov 2025 09:00:00 +0900</pubDate>
+    </item>
+
+    <item>
+      <title>문의 페이지 안내</title>
+      <link>https://www.megacleaning.co.kr/contact.html</link>
+      <description>메가크리닝 문의 안내 페이지입니다.</description>
+      <pubDate>Mon, 10 Nov 2025 09:00:00 +0900</pubDate>
+    </item>
+
+  </channel>
+</rss>
