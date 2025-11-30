@@ -1,4 +1,36 @@
 User-agent: *
 Allow: /
 
+# 메인 사이트맵 등록
 Sitemap: https://www.megacleaning.co.kr/sitemap.xml
+
+# RSS 등록 (네이버/구글 둘 다 수집 가능)
+Sitemap: https://www.megacleaning.co.kr/rss.xml
+
+# 크롤링 속도 최적화
+Crawl-delay: 1
+
+# 중복 또는 불필요한 URL 차단
+Disallow: /temp/
+Disallow: /test/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*?*
+Disallow: /*.php$
+
+# 검색엔진이 읽어도 되는 정적 파일 허용
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /fonts/
+
+# 구글봇 최적화 (선택이지만 강력 추천)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
